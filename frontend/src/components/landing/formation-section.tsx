@@ -1,81 +1,130 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, BookOpen, Clock } from 'lucide-react'
-import { Link } from '@tanstack/react-router'
-import { FORMATIONS } from '@/data/formations'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { ArrowRight, Sparkles, Rocket } from 'lucide-react'
+import { Eyebrow } from './eyebrow'
+import { Reveal } from './reveal'
+
+interface FormationCard {
+  icon: typeof Sparkles
+  badge: string
+  title: string
+  tagline: string
+  description: string
+  modules: string[]
+}
+
+const FORMATIONS: FormationCard[] = [
+  {
+    icon: Sparkles,
+    badge: 'Formation 1',
+    title: 'YouTube Starter',
+    tagline: 'Pose les fondations.',
+    description:
+      "Pour partir du bon pied : ton profil YouTube, ta première vidéo imparfaite, et tous les pièges qu'on évite quand on démarre.",
+    modules: [
+      'Module 0 · Fondations YouTube (mindset, ton profil, les règles du jeu)',
+      'Module 1 · Créer et configurer ta chaîne (matériel, setup, monétisation)',
+      'Module 2 · Ta première vidéo imparfaite (base de données créatives)',
+    ],
+  },
+  {
+    icon: Rocket,
+    badge: 'Formation 2',
+    title: 'YouTube Accelerator',
+    tagline: 'Construis le système complet.',
+    description:
+      "Le programme complet pour devenir une référence dans ta niche : packaging, scriptwriting IA, montage dynamique, publication et itération.",
+    modules: [
+      'Chapitre spécial · Faceless (chaîne sans visage, niches à fort potentiel)',
+      'I · Trouver sa niche claire, précise et stratégique',
+      'II · Packaging (titres & miniatures qui font cliquer)',
+      'III · Stratégie de contenu (algorithme & idées)',
+      'IV · Production assistée par IA (script, storytelling, outils)',
+      'V · Tournage et setup (créateur ou faceless)',
+      'VI · Montage YouTube dynamique',
+      'VII · Publier, analyser, itérer',
+    ],
+  },
+]
 
 export function FormationSection() {
   return (
-    <section id="formations" className="relative overflow-hidden bg-[#F8F9FA] py-24 md:py-32">
-      <div className="container relative z-10 mx-auto px-6">
-        <motion.div 
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="mb-4 inline-block rounded-full bg-[var(--primary)]/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-[var(--primary)]">
-            Académie Branddeo Academy
-          </span>
-          <h2 className="font-display text-3xl font-black tracking-tight text-[var(--foreground)] md:text-5xl">
-            Formations <span className="italic text-[var(--primary)]">Pratiques & Actionnables</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm font-medium text-[#4A4A4A] opacity-80">
-            Maîtrise les outils de demain pour bâtir ton empire aujourd'hui.
-          </p>
-        </motion.div>
+    <section
+      id="formations"
+      className="relative overflow-hidden py-20 sm:py-28 lg:py-32"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="absolute right-1/4 top-0 h-[400px] w-[400px] rounded-full bg-[var(--coral)]/15 blur-[100px]" />
+      </div>
 
-        <div className="mb-16 grid gap-6 md:grid-cols-3">
-          {FORMATIONS.slice(0, 3).map((f, i) => (
-            <motion.div
-              key={f.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#0A0A0A]/5 bg-[var(--card)] p-8 transition-all duration-500 hover:border-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/5"
-            >
-              <div className={cn("absolute -right-10 -top-10 h-32 w-32 blur-3xl opacity-5 transition-opacity group-hover:opacity-10 bg-gradient-to-br", f.color)} />
-              
-              <div className="relative z-10 flex-1">
-                <div className="mb-6 flex items-center justify-between">
-                  <span className="rounded-full bg-[var(--primary)]/10 px-2 py-1 text-[8px] font-black uppercase tracking-widest text-[var(--primary)]">
-                    {f.category}
-                  </span>
-                  <div className="flex items-center gap-1 text-[10px] font-bold text-[#4A4A4A]">
-                    <Clock className="h-3 w-3" /> {f.duration}
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <Eyebrow>Les 2 formations incluses</Eyebrow>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              De zéro à{' '}
+              <span className="serif-accent">référence.</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
+              Branddeo Academy = les 2 formations dans le même accès. Tu pars
+              de zéro avec Starter, tu construis ton système avec Accelerator.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {FORMATIONS.map((f, i) => (
+            <Reveal key={f.title} delay={i * 0.12}>
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)] p-8 transition-all hover:border-[var(--coral)]/40 sm:p-10">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
+                      {f.badge}
+                    </span>
+                    <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                      {f.title}
+                    </h3>
+                    <p className="mt-1 font-display text-lg italic text-white/60">
+                      {f.tagline}
+                    </p>
                   </div>
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-lg shadow-[var(--violet)]/30">
+                    <f.icon className="h-7 w-7" strokeWidth={2} />
+                  </span>
                 </div>
-                <h3 className="font-display text-xl font-black text-[var(--foreground)] transition-colors group-hover:text-[var(--primary)] md:text-2xl">
-                  {f.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-[#4A4A4A] opacity-70 line-clamp-3">
-                  {f.shortDescription}
-                </p>
-              </div>
 
-              <div className="mt-10">
-                <Link to="/catalogue/$id" params={{ id: f.id }}>
-                  <Button variant="ghost" className="h-11 w-full justify-between rounded-xl border border-[#0A0A0A]/5 px-4 transition-all group-hover:border-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white">
-                    <span className="text-[10px] font-black uppercase tracking-widest">Voir le programme</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+                <p className="mt-5 text-base leading-relaxed text-white/75">
+                  {f.description}
+                </p>
+
+                <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-6">
+                  {f.modules.map((m) => (
+                    <li
+                      key={m}
+                      className="flex items-start gap-2.5 text-sm text-white/80"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--coral)]" />
+                      {m}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center">
-          <Link to="/catalogue">
-            <Button size="lg" className="group h-12 rounded-full bg-[#0A0A0A] px-8 text-xs font-black uppercase tracking-widest text-white transition-all hover:scale-[1.02] active:scale-95">
-              Explorer toutes les formations
-              <BookOpen className="ml-2 h-4 w-4 transition-transform group-hover:rotate-6" />
-            </Button>
-          </Link>
-        </div>
+        <Reveal delay={0.3}>
+          <div className="mt-12 text-center">
+            <a
+              href="#offre"
+              className="inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-[0.18em] text-white/70 transition-colors hover:text-[var(--coral)]"
+            >
+              Voir l'offre complète
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

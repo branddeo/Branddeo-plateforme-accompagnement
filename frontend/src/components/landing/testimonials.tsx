@@ -2,96 +2,68 @@ import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
 interface Testimonial {
-  name: string
-  role: string
-  city: string
   quote: string
-  initials: string
-  bg: string
+  emoji: string
 }
 
-// V1 : témoignages placeholders. À remplacer dès que tu auras des vrais.
 const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Camille R.',
-    role: 'Freelance content marketing',
-    city: 'Lyon',
     quote:
-      "En deux mois j'ai automatisé toute ma veille IA et doublé ma production. Le Coach IA est devenu ma routine du matin — je gagne au moins 6 heures par semaine.",
-    initials: 'CR',
-    bg: '#1E40AF',
+      "Wouah 😱 je n'en reviens pas… ma dernière vidéo a explosé les vues. Je n'avais jamais vu ça avant.",
+    emoji: '🎯',
   },
   {
-    name: 'Yanis B.',
-    role: 'Indie maker',
-    city: 'Paris',
     quote:
-      "La communauté est en or. Je trouve des réponses concrètes en quelques heures, pas du blabla. Les formations vont droit au but, exactement ce qu'il me faut.",
-    initials: 'YB',
-    bg: '#2563EB',
+      "Sérieux, tu gères 👌 Le script est super clair. Je me suis enregistré, j'ai pas eu besoin de relire 15 fois.",
+    emoji: '🎬',
   },
   {
-    name: 'Sofia M.',
-    role: 'Product manager SaaS',
-    city: 'Bordeaux',
     quote:
-      "Enfin un endroit francophone sérieux pour suivre l'IA sans se noyer. Les ressources me font gagner des heures sur chaque sprint produit.",
-    initials: 'SM',
-    bg: '#0A0A0A',
+      "Si je t'avais rencontré avant, j'aurais déjà 10k. Je rage un peu de pas avoir commencé plus tôt.",
+    emoji: '⏰',
   },
   {
-    name: 'Théo G.',
-    role: 'Développeur full-stack',
-    city: 'Nantes',
     quote:
-      "Les actus sont vraiment résumées en français de qualité, pas du bot bête. Et le Coach m'aide à debug ou prototyper en quelques échanges.",
-    initials: 'TG',
-    bg: '#3858d8',
+      "Trop contente 😍 J'avais perdu espoir avec ma chaîne. Là, je revois des vues monter et des abonnés arriver.",
+    emoji: '✨',
+  },
+  {
+    quote:
+      "Franchement, tu m'as sauvé 😎. J'ai compris ce que je faisais de travers depuis 2 ans en une seule semaine.",
+    emoji: '🚀',
+  },
+  {
+    quote:
+      'Je tournais en rond. Maintenant j\'ai un plan. Et le plan marche.',
+    emoji: '🧭',
   },
 ]
 
 export function Testimonials() {
   return (
-    <section className="overflow-hidden bg-[var(--background)] py-12 sm:py-16 lg:py-24">
+    <section className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>Ils racontent</Eyebrow>
-            <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-              Ce que disent{' '}
-              <span className="serif-accent">les membres.</span>
+            <Eyebrow>Ce qu'ils en disent</Eyebrow>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Pas des chiffres.{' '}
+              <span className="serif-accent">Des messages.</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg text-[var(--muted-foreground)]">
-              Quelques retours de membres qui utilisent le Club au quotidien.
+            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
+              Extraits bruts des retours qu'on reçoit après quelques semaines.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-14 columns-1 gap-6 md:columns-2 lg:columns-3">
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 2) * 0.08}>
-              <figure className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 shadow-sm transition-shadow hover:shadow-md">
-                <blockquote className="flex-1">
-                  <p className="text-base leading-relaxed text-[var(--foreground)] sm:text-lg">
-                    “{t.quote}”
-                  </p>
+            <Reveal key={i} delay={i * 0.06}>
+              <figure className="mb-6 break-inside-avoid rounded-2xl border border-white/10 bg-[var(--card)] p-6 transition-colors hover:border-[var(--coral)]/30">
+                <span className="text-2xl">{t.emoji}</span>
+                <blockquote className="mt-3 text-base leading-relaxed text-white/85">
+                  « {t.quote} »
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-[var(--border)] pt-5">
-                  <span
-                    className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-white"
-                    style={{ backgroundColor: t.bg }}
-                  >
-                    {t.initials}
-                  </span>
-                  <div>
-                    <p className="font-medium text-[var(--foreground)]">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-[var(--muted-foreground)]">
-                      {t.role} · {t.city}
-                    </p>
-                  </div>
-                </figcaption>
               </figure>
             </Reveal>
           ))}

@@ -1,40 +1,43 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRight, Check } from 'lucide-react'
 import { Reveal } from './reveal'
-import { CardElite } from '@/components/shared/card-elite'
 
 const REASSURANCE = [
-  'Sans réabonnement auto',
-  'Paiement mobile money',
-  'Sécurisé',
+  'Accès immédiat',
+  'Paiement sécurisé',
+  'Garanti 12 mois',
 ]
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-[var(--background)] py-14 sm:py-20 lg:py-24">
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
+    <section className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="absolute left-1/2 top-1/2 h-[700px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-brand opacity-25 blur-[120px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
         <Reveal>
-          {/* Surface bleu Bloomberg en gradient subtil. Accent bleu ciel
-              (--bleu-ciel) sur les éléments vivants. L'or n'apparaît pas
-              ici — gardé pour le numéro de membre et le top 3 classement. */}
-          <CardElite
-            variant="gradient"
-            className="px-6 py-14 text-center sm:px-12 sm:py-20 lg:py-24"
-          >
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)] px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-brand opacity-40 blur-[100px]"
+            />
+
             <div className="relative z-10">
-              <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--bleu-ciel)]">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--coral)]">
                 Dernière étape
               </span>
 
-              <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-[#FAFAF9] sm:text-5xl lg:text-6xl">
-                Prêt à{' '}
-                <span className="font-serif-signature italic text-[var(--bleu-ciel)]">
-                  passer le cap&nbsp;?
-                </span>
+              <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Tu sais ce que{' '}
+                <span className="serif-accent">tu as à faire.</span>
               </h2>
 
               <p className="mx-auto mt-6 max-w-xl text-base text-white/75 sm:text-lg">
-                Rejoins une communauté qui t'aide à avancer chaque jour.
+                30 secondes pour rejoindre l'Academy. Garanti pendant 12 mois.
                 <br className="hidden sm:block" />
                 Pas demain. Aujourd'hui.
               </p>
@@ -42,28 +45,26 @@ export function FinalCTA() {
               <div className="mt-10 flex flex-col items-stretch gap-5 sm:items-center">
                 <Link
                   to="/auth"
-                  className="cta-bleu-ciel cta-bleu-ciel-xl w-full sm:w-auto"
+                  className="cta-black cta-black-xl group relative overflow-hidden w-full sm:w-auto"
                 >
-                  <span className="sm:hidden">
-                    Rejoindre — dès 69&nbsp;000&nbsp;FCFA/6&nbsp;mois
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Rejoindre Branddeo Academy — 497€ HT
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </span>
-                  <span className="hidden sm:inline">
-                    Rejoindre — 69&nbsp;000&nbsp;FCFA/6&nbsp;mois ou 99&nbsp;000&nbsp;FCFA/an
-                  </span>
-                  <ArrowRight className="h-4 w-4" />
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
                 </Link>
 
-                <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/60">
+                <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium uppercase tracking-[0.18em] text-white/60">
                   {REASSURANCE.map((r) => (
                     <li key={r} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3 w-3 text-[var(--bleu-ciel)]" />
+                      <Check className="h-3 w-3 text-[var(--coral)]" strokeWidth={3} />
                       {r}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </CardElite>
+          </div>
         </Reveal>
       </div>
     </section>
