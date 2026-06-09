@@ -1,108 +1,127 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-display: "Khand", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Khand", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-bg: #FAFAF9;
-  --color-fg: #0A0A0A;
-  --color-muted: #6B6B6B;
-  --color-border: #E5E5E4;
-  --color-card: #FFFFFF;
+  --color-bg: #0f081e;
+  --color-fg: #FFFFFF;
+  --color-muted: #A8A0BC;
+  --color-border: #2A1F45;
+  --color-card: #1A0F36;
 
-  --color-brand: #0F1E4D;
-  --color-brand-foreground: #FAFAF9;
-  --color-accent: #60A5FA;
-  --color-accent-foreground: #0A0A0A;
+  --color-brand: #5D2999;
+  --color-brand-foreground: #FFFFFF;
+  --color-accent: #FF605C;
+  --color-accent-foreground: #FFFFFF;
 
   --radius-sm: 0.5rem;
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
 }
 
 :root {
-  /* Surface */
-  --background: #FAFAF9;          /* Blanc cassé chaud (dominant 85%) */
-  --background-pure: #FFFFFF;
-  --foreground: #0A0A0A;
-  --foreground-soft: #1F1F1F;
-  --card: #FFFFFF;
-  --card-elevated: #FFFFFF;
-  --card-foreground: #0A0A0A;
-  --popover: #FFFFFF;
-  --popover-foreground: #0A0A0A;
+  /* === Surface — Branddeo dark theme ====================================== */
+  --background: #0f081e;            /* Ink — fond sombre principal */
+  --background-pure: #0A0517;
+  --foreground: #FFFFFF;
+  --foreground-soft: #E8E0F5;
+  --card: #1A0F36;                  /* Surface élevée */
+  --card-elevated: #221547;
+  --card-foreground: #FFFFFF;
+  --popover: #1A0F36;
+  --popover-foreground: #FFFFFF;
 
-  /* Noir — réservé aux moments d'élite (welcome, profil, achievements) */
-  --noir: #0A0A0A;
-  --noir-soft: #141414;
-  --noir-warm: #1C1A18;
+  /* === Branddeo Violet (primaire — univers numérique) ===================== */
+  --primary: #5D2999;
+  --primary-light: #7E3FCB;
+  --primary-dark: #4A1F7A;
+  --primary-foreground: #FFFFFF;
+  --violet: #5D2999;
+  --violet-soft: #8048C9;
+  --violet-deep: #4A1F7A;
 
-  /* Bleus — la famille harmonieuse de l'identité Club */
-  --primary: #0F1E4D;              /* Bleu Bloomberg profond — surfaces premium */
-  --primary-light: #1E3A8A;        /* Bleu intermédiaire — gradients, hover */
-  --primary-foreground: #FAFAF9;
+  /* === Branddeo Corail (accent — dynamisme, passion) ====================== */
+  --coral: #FF605C;
+  --coral-soft: #FF8985;
+  --coral-deep: #E63D38;
+  --coral-foreground: #FFFFFF;
+  --accent: var(--coral);
+  --accent-foreground: var(--coral-foreground);
+  --accent-hover: var(--coral-soft);
 
-  --bleu-primaire: #3B82F6;        /* Bleu vif standard — CTAs secondaires */
+  /* === Gradient signature Branddeo ======================================== */
+  --gradient-brand: linear-gradient(135deg, #5D2999 0%, #FF605C 100%);
+  --gradient-ink: linear-gradient(160deg, #0F081E 0%, #1A0F36 50%, #2A1559 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(93,41,153,0.15) 0%, rgba(255,96,92,0.15) 100%);
 
-  /* Bleu ciel — accent vivant, remplace l'émeraude et l'orange. Sur fond
-     foncé : utiliser --bleu-ciel directement (contraste OK sur bleu Bloomberg).
-     Sur fond clair : préférer --bleu-ciel-deep pour les textes (#2563EB,
-     contraste ~5:1 WCAG AA). */
-  --bleu-ciel: #60A5FA;
-  --bleu-ciel-soft: #93C5FD;
-  --bleu-ciel-deep: #2563EB;
-  --bleu-ciel-foreground: #0A0A0A;
+  /* === Couleurs secondaires (touches ponctuelles) ========================= */
+  --green: #41AF6E;                 /* Succès / progression validée */
+  --green-soft: #6ECF93;
+  --green-deep: #2F8551;
+  --bleu: #0F4696;                  /* Bleu Branddeo */
+  --magenta: #AE08B7;
+  --jaune: #FFF203;
+  --lime: #A6CE13;
+  --lime-deep: #8AAB0F;
 
-  /* OR — couleur RARE (1-3× par écran max). Réservée aux moments d'élite :
-     numéro de membre, médailles du top 3, achievements, Early Adopter. */
+  /* === Aliases de compatibilité (anciennes vars Le Club IA) ===============
+     Les composants utilisent encore var(--bleu-ciel), var(--emerald),
+     var(--noir). On les fait pointer vers les nouvelles couleurs Branddeo
+     pour ne rien casser pendant la migration. */
+  --noir: var(--background);
+  --noir-soft: var(--card);
+  --noir-warm: var(--card-elevated);
+
+  --bleu-ciel: var(--coral);
+  --bleu-ciel-soft: var(--coral-soft);
+  --bleu-ciel-deep: var(--coral-deep);
+  --bleu-ciel-foreground: var(--coral-foreground);
+
+  --emerald: var(--green);
+  --emerald-bright: var(--green-soft);
+  --emerald-deep: var(--green-deep);
+  --emerald-soft: var(--green-soft);
+  --emerald-foreground: #FFFFFF;
+
+  --bleu-primaire: var(--violet);
+
+  /* OR — couleur RARE (1-3× par écran max). Réservée aux moments d'élite. */
   --or: #D4AF37;
   --or-soft: #E8C97A;
   --or-deep: #B8941F;
   --or-foreground: #0A0A0A;
 
-  /* DEPRECATED — alias émeraude → bleu ciel. Conservé pour ne pas casser
-     les composants qui utilisent var(--emerald-*). À retirer progressivement. */
-  --emerald: var(--bleu-ciel);
-  --emerald-bright: var(--bleu-ciel-soft);
-  --emerald-deep: var(--bleu-ciel-deep);
-  --emerald-soft: var(--bleu-ciel-soft);
-  --emerald-foreground: var(--bleu-ciel-foreground);
+  /* === Neutres (dark mode) ================================================ */
+  --secondary: #221547;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A1F45;
+  --muted-foreground: #A8A0BC;
+  --border: #2A1F45;
+  --input: #2A1F45;
+  --ring: var(--coral);
 
-  /* Accent = alias BLEU CIEL (l'accent vivant principal). Tous les
-     composants utilisant var(--accent) sont automatiquement en bleu ciel
-     (FAB, trait actif bottom nav, boutons accent, badges). */
-  --accent: var(--bleu-ciel);
-  --accent-foreground: var(--bleu-ciel-foreground);
-  --accent-hover: var(--bleu-ciel-soft);
+  /* === CTA noir → maintenant Violet Branddeo ============================== */
+  --black-cta: var(--violet);
+  --black-cta-foreground: #FFFFFF;
+  --black-cta-hover: var(--violet-soft);
 
-  /* Neutres */
-  --secondary: #F4F4F2;
-  --secondary-foreground: #0A0A0A;
-  --muted: #F5F5F4;
-  --muted-foreground: #6B6B6B;
-  --border: #E5E5E4;
-  --input: #E5E5E4;
-  --ring: #0F1E4D;
-
-  /* CTA noir (alias des nouvelles vars noir) */
-  --black-cta: var(--noir);
-  --black-cta-foreground: #FAFAF9;
-  --black-cta-hover: var(--noir-warm);
-
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  /* === Glassmorphism (adapté au dark theme) =============================== */
+  --glass-bg: rgba(26, 15, 54, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 12px;
 
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  /* Cinematic Animation Tokens */
+  /* === Animation tokens ==================================================== */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
 }
@@ -115,12 +134,10 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* iOS Safari : overflow-x:hidden seul ne suffit pas quand un enfant
-       a un transform animé (ex: marquee). overflow-x:clip est mieux
-       supporté et n'introduit pas de scroll container. */
     overflow-x: clip;
     overscroll-behavior-x: none;
     max-width: 100%;
+    color-scheme: dark;
   }
   body {
     background-color: var(--background);
@@ -142,7 +159,7 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     color: var(--foreground);
-    line-height: 1.1;
+    line-height: 1.05;
   }
   p, li, span, h1, h2, h3, h4, h5, h6, a {
     overflow-wrap: break-word;
@@ -156,7 +173,7 @@
     content: "";
     position: fixed;
     inset: 0;
-    opacity: 0.03;
+    opacity: 0.025;
     pointer-events: none;
     z-index: 9999;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -164,170 +181,163 @@
 }
 
 @layer utilities {
-  /* Marquee défilement infini (logos d'outils sur la landing).
-     2× le tableau dans le DOM, on translate de -50% pour boucler proprement.
-     Pause au hover sur desktop, désactivé si l'utilisateur a "reduce motion". */
+  /* === Marquee défilement infini ========================================== */
   @keyframes tools-marquee-scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
   .tools-marquee-track {
     width: max-content;
     animation: tools-marquee-scroll 50s linear infinite;
     will-change: transform;
-    /* iOS Safari : `contain: paint` empêche le layer composé du marquee
-       de "déborder" sur la page entière quand WebKit promeut l'élément
-       en compositing layer (visible cause du décalage horizontal sur
-       iPhone, alors que Chrome devtools simulation render correctement). */
     contain: paint;
   }
   @media (min-width: 640px) {
-    .tools-marquee-track {
-      animation-duration: 40s;
-    }
+    .tools-marquee-track { animation-duration: 40s; }
   }
   .tools-marquee-track:hover {
     animation-play-state: paused;
   }
   @media (prefers-reduced-motion: reduce) {
-    .tools-marquee-track {
-      animation: none;
-    }
+    .tools-marquee-track { animation: none; }
   }
 
-  /* Phrase-clé en rupture : Instrument Serif italique en BLEU CIEL DEEP.
-     Donne plus de relief sur fond clair que le bleu Bloomberg (qui reste
-     pour les titres principaux). Usage : <span class="serif-accent">Pas demain.</span> */
+  /* === Phrase-clé en italique avec accent corail Branddeo ================= */
   .serif-accent {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-style: italic;
-    color: var(--bleu-ciel-deep);
+    color: var(--coral);
     letter-spacing: -0.01em;
-    font-weight: 400;
+    font-weight: 600;
   }
 
-  /* Signature serif italique (style "club privé") : titres clés, citations,
-     phrases-signature. Couleur héritée pour pouvoir composer avec text-*. */
   .font-serif-signature {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-style: italic;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
 
-  /* Nombres "The Information" : Instrument Serif tabulaires pour les
-     chiffres importants (points, numéro de membre, rang). */
   .font-serif-number {
-    font-family: var(--font-serif);
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-weight: 600;
     font-style: normal;
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.02em;
   }
 
-  /* Couleur OR utilitaire — usage RARE (1-3× par écran). */
+  /* === Couleurs utilitaires Branddeo ====================================== */
+  .text-coral { color: var(--coral); }
+  .text-coral-deep { color: var(--coral-deep); }
+  .bg-coral { background-color: var(--coral); }
+  .border-coral { border-color: var(--coral); }
+  .ring-coral { --tw-ring-color: var(--coral); }
+
+  .text-violet { color: var(--violet); }
+  .text-violet-soft { color: var(--violet-soft); }
+  .bg-violet { background-color: var(--violet); }
+  .border-violet { border-color: var(--violet); }
+  .ring-violet { --tw-ring-color: var(--violet); }
+
+  /* === Backgrounds gradient ============================================== */
+  .bg-gradient-brand { background: var(--gradient-brand); }
+  .bg-gradient-ink { background: var(--gradient-ink); }
+  .bg-gradient-brand-soft { background: var(--gradient-brand-soft); }
+
+  /* === Couleur OR utilitaire (rare) ======================================= */
   .text-or { color: var(--or); }
   .bg-or { background-color: var(--or); }
   .border-or { border-color: var(--or); }
   .ring-or { --tw-ring-color: var(--or); }
 
-  /* Bleu ciel — accent vivant principal (remplace l'orange et l'émeraude). */
-  .text-bleu-ciel { color: var(--bleu-ciel); }
-  .text-bleu-ciel-deep { color: var(--bleu-ciel-deep); }
-  .bg-bleu-ciel { background-color: var(--bleu-ciel); }
-  .border-bleu-ciel { border-color: var(--bleu-ciel); }
-  .ring-bleu-ciel { --tw-ring-color: var(--bleu-ciel); }
+  /* === Alias rétro-compatibles (anciennes classes émeraude/bleu-ciel) ===== */
+  .text-bleu-ciel { color: var(--coral); }
+  .text-bleu-ciel-deep { color: var(--coral-deep); }
+  .bg-bleu-ciel { background-color: var(--coral); }
+  .border-bleu-ciel { border-color: var(--coral); }
+  .ring-bleu-ciel { --tw-ring-color: var(--coral); }
 
-  /* DEPRECATED — utilitaires émeraude maintenus comme alias (basculent en
-     bleu ciel automatiquement via les variables). Préfère .text-bleu-ciel. */
-  .text-emerald { color: var(--bleu-ciel); }
-  .text-emerald-deep { color: var(--bleu-ciel-deep); }
-  .bg-emerald { background-color: var(--bleu-ciel); }
-  .border-emerald { border-color: var(--bleu-ciel); }
+  .text-emerald { color: var(--green); }
+  .text-emerald-deep { color: var(--green-deep); }
+  .bg-emerald { background-color: var(--green); }
+  .border-emerald { border-color: var(--green); }
 
-  /* CTA bleu ciel — bouton "Rejoindre" sur surface bleu Bloomberg. */
-  .cta-bleu-ciel {
+  /* === CTA Corail — bouton accent principal Branddeo ====================== */
+  .cta-coral, .cta-bleu-ciel {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--bleu-ciel);
-    color: var(--bleu-ciel-foreground);
+    background-color: var(--coral);
+    color: var(--coral-foreground);
     border-radius: 9999px;
     padding: 1rem 2rem;
     font-weight: 600;
     font-size: 1rem;
     line-height: 1;
     transition: background-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
-    box-shadow: 0 4px 20px 0 rgba(96, 165, 250, 0.32);
+    box-shadow: 0 4px 20px 0 rgba(255, 96, 92, 0.32);
     cursor: pointer;
     border: none;
     white-space: nowrap;
   }
-  .cta-bleu-ciel:hover {
-    background-color: var(--bleu-ciel-soft);
-    box-shadow: 0 8px 32px 0 rgba(96, 165, 250, 0.42);
+  .cta-coral:hover, .cta-bleu-ciel:hover {
+    background-color: var(--coral-soft);
+    box-shadow: 0 8px 32px 0 rgba(255, 96, 92, 0.42);
     transform: translateY(-1px);
   }
-  .cta-bleu-ciel:disabled,
-  .cta-bleu-ciel[aria-disabled="true"] {
+  .cta-coral:disabled, .cta-coral[aria-disabled="true"],
+  .cta-bleu-ciel:disabled, .cta-bleu-ciel[aria-disabled="true"] {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
-    box-shadow: 0 4px 14px 0 rgba(96, 165, 250, 0.2);
+    box-shadow: 0 4px 14px 0 rgba(255, 96, 92, 0.2);
   }
-  .cta-bleu-ciel-xl {
+  .cta-coral-xl, .cta-bleu-ciel-xl {
     padding: 1.25rem 2.5rem;
     font-size: 1.0625rem;
   }
   @media (max-width: 480px) {
-    .cta-bleu-ciel-xl {
+    .cta-coral-xl, .cta-bleu-ciel-xl {
       padding: 1rem 1.5rem;
       font-size: 1rem;
     }
   }
 
-
-  /* Grain texture overlay (pour CardElite et surfaces premium). */
+  /* === Grain texture overlay ============================================== */
   .grain-overlay::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.05;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
   }
 
-  /* Eyebrow éditorial : uppercase, tracking large, sobre. */
+  /* === Eyebrow éditorial : uppercase Khand, accent corail ================= */
   .eyebrow {
+    font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    font-size: 0.75rem; /* text-xs */
-    font-weight: 500;
-    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--coral);
   }
 
-  /* Mention @membre : pill bleu cliquable, identique dans l'éditeur
-     Tiptap et dans le rendu HTML sanitisé d'un commentaire. */
+  /* === Mention @membre (pill cliquable) =================================== */
   .mention {
-    color: var(--primary);
-    font-weight: 500;
+    color: var(--coral);
+    font-weight: 600;
     text-decoration: none;
     border-radius: 4px;
     padding: 0 2px;
     transition: background-color 150ms ease;
   }
   .mention:hover {
-    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    background-color: color-mix(in srgb, var(--coral) 15%, transparent);
     text-decoration: none;
   }
-  /* Suggestion dropdown Tippy : retire le background blanc par défaut
-     pour laisser MentionList gérer son propre style. */
   .tippy-box[data-theme~='mention'] {
     background: transparent;
     box-shadow: none;
@@ -336,40 +346,36 @@
     padding: 0;
   }
 
-  /* CTA noir style izi.club. */
+  /* === CTA "black" devient le CTA Violet Branddeo ========================= */
   .cta-black {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--black-cta);
-    color: var(--black-cta-foreground);
+    background: var(--gradient-brand);
+    color: #FFFFFF;
     border-radius: 9999px;
     padding: 1rem 2rem;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1rem;
     line-height: 1;
-    transition: background-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+    transition: filter 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+    box-shadow: 0 4px 20px 0 rgba(93, 41, 153, 0.4);
     cursor: pointer;
     border: none;
     white-space: nowrap;
   }
   .cta-black:hover {
-    background-color: var(--black-cta-hover);
-    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.22);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 32px 0 rgba(93, 41, 153, 0.55);
     transform: translateY(-1px);
   }
-  .cta-black:disabled,
-  .cta-black[aria-disabled="true"] {
+  .cta-black:disabled, .cta-black[aria-disabled="true"] {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 14px 0 rgba(93, 41, 153, 0.2);
   }
-
-  /* Variante XL pour le hero. Padding réduit sur mobile (≤480px) pour
-     éviter que le bouton dépasse les bords sur petits téléphones. */
   .cta-black-xl {
     padding: 1.25rem 2.5rem;
     font-size: 1.0625rem;
@@ -381,31 +387,31 @@
     }
   }
 
-  /* CTA primary : version bleu profond pour les actions secondaires. */
+  /* === CTA primary : violet flat (actions secondaires) ==================== */
   .cta-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--primary);
+    background-color: var(--violet);
     color: var(--primary-foreground);
     border-radius: 9999px;
     padding: 0.875rem 1.75rem;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.9375rem;
     line-height: 1;
     transition: background-color 300ms ease, box-shadow 300ms ease;
-    box-shadow: 0 4px 14px 0 rgba(30, 64, 175, 0.18);
+    box-shadow: 0 4px 14px 0 rgba(93, 41, 153, 0.25);
     cursor: pointer;
     border: none;
     white-space: nowrap;
   }
   .cta-primary:hover {
-    background-color: #1c3a9e;
-    box-shadow: 0 8px 28px 0 rgba(30, 64, 175, 0.28);
+    background-color: var(--violet-soft);
+    box-shadow: 0 8px 28px 0 rgba(93, 41, 153, 0.4);
   }
 
-  /* CTA tertiary : ghost lien sobre. */
+  /* === CTA tertiary : ghost lien sobre ==================================== */
   .cta-ghost {
     display: inline-flex;
     align-items: center;
@@ -416,10 +422,10 @@
     transition: color 300ms ease;
   }
   .cta-ghost:hover {
-    color: var(--primary);
+    color: var(--coral);
   }
 
-  /* Glassmorphism utility */
+  /* === Glassmorphism (dark) =============================================== */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
@@ -427,33 +433,34 @@
     border: 1px solid var(--glass-border);
   }
 
-  /* Reveal animation classes */
+  /* === Reveal animation =================================================== */
   .reveal-up {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo);
   }
-
   .reveal-up.active {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Smooth scroll container */
-  .lenis.lenis-smooth {
-    height: auto;
-  }
+  /* === Smooth scroll container ============================================ */
+  .lenis.lenis-smooth { height: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
 
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
-  /* ProseMirror / Tiptap Fix */
+  /* === ProseMirror / Tiptap ============================================== */
   .ProseMirror {
     white-space: pre-wrap !important;
+  }
+
+  /* === Orbe gradient signature (héros) ==================================== */
+  .brand-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    filter: blur(60px);
+    opacity: 0.55;
+    pointer-events: none;
   }
 }

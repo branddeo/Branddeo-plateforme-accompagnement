@@ -2,127 +2,136 @@ import { Link } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'
 
 export type BrandLogoSize = 'sm' | 'md' | 'lg' | 'xl'
-export type BrandLogoVariant = 'primary' | 'inverse'
+export type BrandLogoVariant = 'primary' | 'inverse' | 'icon-only'
 
 interface BrandLogoProps {
   size?: BrandLogoSize
   /**
-   * - `primary` : capsule bleu Bloomberg + texte blanc cassé + point
-   *   émeraude (par défaut).
-   * - `inverse` : capsule blanche + bordure bleue + texte bleu + point
-   *   émeraude. À utiliser sur fond très foncé/coloré où la capsule
-   *   bleue serait peu lisible.
+   * - `primary` : logo complet (chevrons corail + wordmark blanc) pour
+   *   fonds sombres (le défaut Branddeo).
+   * - `inverse` : logo complet (chevrons corail + wordmark sombre) pour
+   *   fonds clairs.
+   * - `icon-only` : juste le double-chevron de rembobinage, sans wordmark.
+   *   Utile pour favicon, bottom nav mobile, avatar fallback.
    */
   variant?: BrandLogoVariant
   className?: string
   /** Si true (défaut), le logo est un <Link> vers "/". */
   asLink?: boolean
-  /**
-   * Si true, affiche l'eyebrow signature "L'INTÉRIEUR DU CERCLE" sous le
-   * logo (uppercase, tracking large, très petit). Réservé au footer
-   * landing pour poser l'identité — pas dans la sidebar app. Défaut: false.
-   */
+  /** Sous-titre optionnel ("Academy", "Agency"…) sous le wordmark. */
+  subtitle?: string
+  /** Conservé pour compatibilité avec l'ancien composant — sans effet. */
   showSignature?: boolean
 }
 
-// Capsule SVG de viewBox 200×72.
-const SIZE_STYLE: Record<BrandLogoSize, { width: number; height: number }> = {
-  sm: { width: 100, height: 36 },
-  md: { width: 140, height: 50 },
-  lg: { width: 175, height: 63 },
-  xl: { width: 240, height: 86 },
+const SIZE_HEIGHT: Record<BrandLogoSize, number> = {
+  sm: 24,
+  md: 32,
+  lg: 44,
+  xl: 60,
 }
 
-const BLEU = '#0F1E4D'
-const BLANC = '#FAFAF9'
-const BLEU_CIEL = '#60A5FA'
+const CORAL = '#FF605C'
 
 export function BrandLogo({
   size = 'md',
   variant = 'primary',
   className,
   asLink = true,
-  showSignature = false,
+  subtitle,
 }: BrandLogoProps) {
   const isInverse = variant === 'inverse'
-  const fillBg = isInverse ? BLANC : BLEU
-  const textColor = isInverse ? BLEU : BLANC
-  const strokeColor = isInverse ? BLEU : 'none'
-  const dimensions = SIZE_STYLE[size]
+  const isIconOnly = variant === 'icon-only'
+  const height = SIZE_HEIGHT[size]
+  const wordmarkColor = isInverse ? '#0F081E' : '#FFFFFF'
 
-  const svg = (
+  /**
+   * Double chevron "rewind" — signature visuelle Branddeo.
+   * 2 triangles corail pointant vers la gauche, équivalent du symbole
+   * de rembobinage vidéo, en clin d'œil au cœur du métier (YouTube).
+   */
+  const rewindIcon = (
     <svg
       role="img"
-      aria-label="Le Club IA"
-      width={dimensions.width}
-      height={dimensions.height}
-      viewBox="0 0 200 72"
+      aria-label={isIconOnly ? 'Branddeo' : undefined}
+      aria-hidden={isIconOnly ? undefined : true}
+      width={height * 1.35}
+      height={height}
+      viewBox="0 0 80 60"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('block', className)}
+      style={{ flexShrink: 0 }}
     >
-      <defs>
-        {/* Halo bleu ciel derrière le point — signature harmonique bleue */}
-        <radialGradient id="bleuCielHalo" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={BLEU_CIEL} stopOpacity="0.55" />
-          <stop offset="100%" stopColor={BLEU_CIEL} stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* Capsule pilule */}
-      <rect
-        x={isInverse ? 1.5 : 0}
-        y={isInverse ? 1.5 : 0}
-        width={isInverse ? 197 : 200}
-        height={isInverse ? 69 : 72}
-        rx={36}
-        fill={fillBg}
-        stroke={strokeColor}
-        strokeWidth={isInverse ? 2.5 : 0}
+      <path
+        d="M 30 2 L 2 30 L 30 58 L 30 42 L 18 30 L 30 18 Z"
+        fill={CORAL}
       />
-
-      {/* "leclub.ia" — point bleu ciel (harmonie chromatique avec la
-          capsule bleu Bloomberg). */}
-      <text
-        x="100"
-        y="48"
-        fontFamily="'Bricolage Grotesque', Inter, system-ui, sans-serif"
-        fontWeight={700}
-        fontSize={32}
-        fill={textColor}
-        textAnchor="middle"
-        letterSpacing="-0.02em"
-      >
-        leclub
-        <tspan fill={BLEU_CIEL} fontWeight={800} fontSize={36}>
-          .
-        </tspan>
-        ia
-      </text>
+      <path
+        d="M 62 2 L 34 30 L 62 58 L 62 42 L 50 30 L 62 18 Z"
+        fill={CORAL}
+      />
     </svg>
   )
 
-  const content = showSignature ? (
-    <div className="inline-flex flex-col items-center gap-1.5">
-      {svg}
-      <span
-        className="text-[9px] font-medium uppercase tracking-[0.28em]"
-        style={{ color: 'var(--muted-foreground)' }}
-      >
-        L'intérieur du cercle
-      </span>
-    </div>
-  ) : (
-    svg
+  const wordmarkSize = {
+    sm: 'text-xl',
+    md: 'text-2xl',
+    lg: 'text-3xl',
+    xl: 'text-5xl',
+  }[size]
+
+  const subtitleSize = {
+    sm: 'text-[8px]',
+    md: 'text-[10px]',
+    lg: 'text-xs',
+    xl: 'text-sm',
+  }[size]
+
+  const content = (
+    <span
+      className={cn(
+        'inline-flex items-center gap-2 select-none leading-none',
+        className,
+      )}
+      aria-label={isIconOnly ? undefined : `Branddeo${subtitle ? ` ${subtitle}` : ''}`}
+    >
+      {rewindIcon}
+      {!isIconOnly && (
+        <span className="inline-flex flex-col items-start leading-none">
+          <span
+            className={cn(
+              'font-display font-bold tracking-tight',
+              wordmarkSize,
+            )}
+            style={{ color: wordmarkColor, letterSpacing: '-0.02em' }}
+          >
+            Branddeo
+          </span>
+          {subtitle && (
+            <span
+              className={cn(
+                'font-display font-semibold uppercase mt-0.5',
+                subtitleSize,
+              )}
+              style={{
+                color: wordmarkColor,
+                opacity: 0.7,
+                letterSpacing: '0.2em',
+              }}
+            >
+              {subtitle}
+            </span>
+          )}
+        </span>
+      )}
+    </span>
   )
 
-  if (!asLink) return content
-  return (
-    <Link
-      to="/"
-      className="inline-flex shrink-0"
-      aria-label="Le Club IA — Accueil"
-    >
-      {content}
-    </Link>
-  )
+  if (asLink) {
+    return (
+      <Link to="/" className="inline-flex">
+        {content}
+      </Link>
+    )
+  }
+  return content
 }
