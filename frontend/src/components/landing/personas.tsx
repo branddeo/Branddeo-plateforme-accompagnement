@@ -66,7 +66,7 @@ export function Personas() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {PERSONAS.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.08}>
-              <div className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-white p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--foreground)]/15 hover:shadow-xl hover:shadow-black/5">
+              <div className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--foreground)]/15 hover:shadow-xl hover:shadow-black/5">
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--foreground)] text-white">
                   <p.icon className="h-5 w-5" />
                 </span>

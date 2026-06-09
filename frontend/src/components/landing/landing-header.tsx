@@ -35,8 +35,8 @@ export function LandingHeader() {
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-all duration-500',
           scrolled
-            ? 'border-b border-white/10 bg-white/70 backdrop-blur-xl'
-            : 'border-b border-transparent bg-white/0',
+            ? 'border-b border-white/10 bg-[var(--background)]/85 backdrop-blur-xl'
+            : 'border-b border-transparent bg-transparent',
         )}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
@@ -45,25 +45,24 @@ export function LandingHeader() {
           <nav className="flex items-center gap-6 sm:gap-8">
             <a
               href="#formations"
-              className="hidden text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)] sm:inline-block"
+              className="hidden font-display text-sm font-medium text-white/70 transition-colors hover:text-white sm:inline-block"
             >
               Formations
             </a>
             <Link
               to="/auth"
-              className="hidden text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)] sm:inline-block"
+              className="hidden font-display text-sm font-medium text-white/70 transition-colors hover:text-white sm:inline-block"
             >
               Se connecter
             </Link>
             <Link
               to="/auth"
-              className="cta-black group relative overflow-hidden px-6 py-2.5 text-sm"
+              className="cta-coral group relative overflow-hidden px-6 py-2.5 text-sm"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Rejoindre Le Club
-                <div className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                Rejoindre Branddeo
               </span>
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </Link>
           </nav>
         </div>

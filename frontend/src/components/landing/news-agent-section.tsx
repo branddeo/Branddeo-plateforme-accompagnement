@@ -12,7 +12,7 @@ const STATS = [
 
 export function NewsAgentSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-[var(--card)] py-16 sm:py-24 lg:py-28">
       {/* Dynamic Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[var(--bleu-ciel)]/10 blur-[120px]" />
@@ -25,7 +25,7 @@ export function NewsAgentSection() {
               aria-hidden="true"
               className="absolute -inset-10 -z-10 rounded-[3rem] bg-gradient-to-br from-[var(--primary)]/10 to-[var(--bleu-ciel)]/25 blur-3xl transition-opacity duration-700 group-hover:opacity-80"
             />
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-[var(--border)] bg-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.01]">
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-[var(--border)] bg-[var(--card)] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.01]">
               <NewsMockup />
             </div>
             
@@ -33,7 +33,7 @@ export function NewsAgentSection() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="absolute -bottom-6 -right-6 hidden rounded-2xl border border-[var(--border)] bg-white p-4 shadow-xl sm:block"
+              className="absolute -bottom-6 -right-6 hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-xl sm:block"
             >
               <div className="flex items-center gap-3">
                 <div className="relative flex h-3 w-3">
@@ -60,7 +60,7 @@ export function NewsAgentSection() {
             {STATS.map((s) => (
               <div
                 key={s.label}
-                className="group relative rounded-2xl border border-[var(--border)] bg-[var(--background)] p-4 transition-all duration-300 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-lg sm:p-6"
+                className="group relative rounded-2xl border border-[var(--border)] bg-[var(--background)] p-4 transition-all duration-300 hover:border-[var(--primary)]/20 hover:bg-[var(--card)] hover:shadow-lg sm:p-6"
               >
                 <p className="font-display text-2xl font-bold tracking-tight text-[var(--foreground)] tabular-nums sm:text-4xl">
                   {s.value}

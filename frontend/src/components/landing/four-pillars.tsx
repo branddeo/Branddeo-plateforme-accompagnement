@@ -64,7 +64,7 @@ export function FourPillars() {
   return (
     <section
       id="piliers"
-      className="relative overflow-clip bg-white py-16 sm:py-24 lg:py-28"
+      className="relative overflow-clip bg-[var(--card)] py-16 sm:py-24 lg:py-28"
     >
       {/* Background depth halo — masqué sur mobile : sur iOS Safari, un
           élément absolute avec filter: blur() + overflow-hidden parent
@@ -96,12 +96,12 @@ export function FourPillars() {
               direction={i % 2 === 0 ? 'right' : 'left'}
               className="min-w-0"
             >
-              <div className="group relative flex h-full max-w-full min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-white transition-all duration-700 hover:border-[var(--primary)]/20 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] sm:rounded-[2.5rem]">
+              <div className="group relative flex h-full max-w-full min-w-0 flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--card)] transition-all duration-700 hover:border-[var(--primary)]/20 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] sm:rounded-[2.5rem]">
                 <div className="relative z-10 flex flex-col p-6 sm:p-10">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0A0A0A] text-white shadow-xl shadow-black/10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-[var(--primary)]">
                     <p.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-black tracking-tight text-[#0A0A0A] sm:text-4xl">
+                  <h3 className="mt-8 font-display text-2xl font-black tracking-tight text-[var(--foreground)] sm:text-4xl">
                     {p.title}
                   </h3>
                   <p className="mt-4 text-base font-medium leading-relaxed text-[#4A4A4A] opacity-70 sm:text-lg">
@@ -111,7 +111,7 @@ export function FourPillars() {
                   {p.link && (
                     <Link
                       to={p.link as any}
-                      className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#0A0A0A] transition-all duration-300 group-hover:gap-3 group-hover:text-[var(--primary)]"
+                      className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[var(--foreground)] transition-all duration-300 group-hover:gap-3 group-hover:text-[var(--primary)]"
                     >
                       Voir tout le catalogue
                       <ArrowRight className="h-4 w-4" />
@@ -138,7 +138,7 @@ export function FourPillars() {
               to="/auth"
               className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-[#0A0A0A] px-8 py-5 text-base font-black uppercase tracking-widest text-white shadow-xl shadow-black/10 transition-all hover:scale-[1.02] active:scale-[0.98] sm:w-auto sm:px-12 sm:text-sm"
             >
-              <span className="relative z-10">Rejoindre Le Club IA</span>
+              <span className="relative z-10">Rejoindre Branddeo Academy</span>
               <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </Link>

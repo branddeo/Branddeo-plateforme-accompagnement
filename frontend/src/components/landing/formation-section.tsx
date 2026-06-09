@@ -17,9 +17,9 @@ export function FormationSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="mb-4 inline-block rounded-full bg-[var(--primary)]/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-[var(--primary)]">
-            Académie Le Club IA
+            Académie Branddeo Academy
           </span>
-          <h2 className="font-display text-3xl font-black tracking-tight text-[#0A0A0A] md:text-5xl">
+          <h2 className="font-display text-3xl font-black tracking-tight text-[var(--foreground)] md:text-5xl">
             Formations <span className="italic text-[var(--primary)]">Pratiques & Actionnables</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm font-medium text-[#4A4A4A] opacity-80">
@@ -35,7 +35,7 @@ export function FormationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#0A0A0A]/5 bg-white p-8 transition-all duration-500 hover:border-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/5"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#0A0A0A]/5 bg-[var(--card)] p-8 transition-all duration-500 hover:border-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/5"
             >
               <div className={cn("absolute -right-10 -top-10 h-32 w-32 blur-3xl opacity-5 transition-opacity group-hover:opacity-10 bg-gradient-to-br", f.color)} />
               
@@ -48,7 +48,7 @@ export function FormationSection() {
                     <Clock className="h-3 w-3" /> {f.duration}
                   </div>
                 </div>
-                <h3 className="font-display text-xl font-black text-[#0A0A0A] transition-colors group-hover:text-[var(--primary)] md:text-2xl">
+                <h3 className="font-display text-xl font-black text-[var(--foreground)] transition-colors group-hover:text-[var(--primary)] md:text-2xl">
                   {f.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-[#4A4A4A] opacity-70 line-clamp-3">

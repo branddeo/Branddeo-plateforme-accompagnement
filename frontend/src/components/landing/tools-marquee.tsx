@@ -26,8 +26,8 @@ const TOOLS: Tool[] = [
 export function ToolsMarquee() {
   return (
     <section
-      aria-label="Outils IA couverts par Le Club IA"
-      className="bg-white py-14 sm:py-16 lg:py-24 overflow-hidden"
+      aria-label="Outils IA couverts par Branddeo Academy"
+      className="bg-[var(--card)] py-14 sm:py-16 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
@@ -81,7 +81,7 @@ function ToolTile({
       className="group flex shrink-0 flex-col items-center gap-4 px-10 sm:px-14"
       title={tool.name}
     >
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--background)] transition-all duration-500 group-hover:scale-110 group-hover:border-[var(--primary)]/20 group-hover:bg-white group-hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] sm:h-20 sm:w-20">
+      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--background)] transition-all duration-500 group-hover:scale-110 group-hover:border-[var(--primary)]/20 group-hover:bg-[var(--card)] group-hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] sm:h-20 sm:w-20">
         <img
           src={`https://svgl.app/library/${tool.slug}.svg`}
           alt={tool.name}

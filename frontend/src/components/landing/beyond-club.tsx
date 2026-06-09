@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 export function BeyondClub() {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-[var(--card)] py-16 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
@@ -15,7 +15,7 @@ export function BeyondClub() {
               Bien plus qu'<span className="serif-accent italic">une plateforme.</span>
             </h2>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[var(--muted-foreground)] sm:text-xl">
-              Le Club IA t'accompagne avec une présence humaine et des récompenses concrètes pour booster ta carrière.
+              Branddeo Academy t'accompagne avec une présence humaine et des récompenses concrètes pour booster ta carrière.
             </p>
           </Reveal>
         </div>
@@ -80,7 +80,7 @@ function BenefitCard({
   points: string[]
 }) {
   return (
-    <article className="group relative h-full flex flex-col rounded-[2.5rem] border border-[var(--border)] bg-white p-8 transition-all duration-700 hover:scale-[1.01] hover:border-[var(--primary)]/20 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] sm:p-12">
+    <article className="group relative h-full flex flex-col rounded-[2.5rem] border border-[var(--border)] bg-[var(--card)] p-8 transition-all duration-700 hover:scale-[1.01] hover:border-[var(--primary)]/20 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] sm:p-12">
       <div
         className={cn(
           'flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-500 group-hover:scale-110 shadow-lg',

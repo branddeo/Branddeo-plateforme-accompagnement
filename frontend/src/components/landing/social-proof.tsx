@@ -27,7 +27,7 @@ export function SocialProof() {
   }, [])
 
   return (
-    <section className="overflow-hidden border-y border-[#E5E5E5] bg-[#FAFAF9]">
+    <section className="overflow-hidden border-y border-[#E5E5E5] bg-[var(--background)]">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
         <Reveal className="flex items-center gap-4">
           {/* Avatars empilés */}
@@ -52,24 +52,24 @@ export function SocialProof() {
             ))}
           </div>
           <div>
-            <p className="font-display text-2xl font-semibold tracking-tight text-[#0A0A0A] tabular-nums">
+            <p className="font-display text-2xl font-semibold tracking-tight text-[var(--foreground)] tabular-nums">
               {count !== null && !error
                 ? count.toLocaleString('fr-FR')
                 : '—'}
-              <span className="ml-1 text-sm font-normal text-[#737373]">
+              <span className="ml-1 text-sm font-normal text-[var(--muted-foreground)]">
                 {error || count === null
                   ? 'passionnés d\'IA francophones'
                   : 'passionnés ont déjà rejoint'}
               </span>
             </p>
-            <p className="text-xs text-[#737373]">
+            <p className="text-xs text-[var(--muted-foreground)]">
               Rejoint par les passionnés d'IA francophones
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={0.1} className="hidden lg:block">
-          <div className="flex items-center gap-6 text-xs uppercase tracking-[0.18em] text-[#737373]">
+          <div className="flex items-center gap-6 text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
             <span>Sources surveillées</span>
             <Logo>OpenAI</Logo>
             <Logo>Anthropic</Logo>
@@ -85,7 +85,7 @@ export function SocialProof() {
 
 function Logo({ children }: { children: React.ReactNode }) {
   return (
-    <span className="font-display text-sm font-semibold tracking-normal text-[#0A0A0A]/70">
+    <span className="font-display text-sm font-semibold tracking-normal text-[var(--foreground)]/70">
       {children}
     </span>
   )

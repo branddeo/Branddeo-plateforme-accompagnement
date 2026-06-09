@@ -75,7 +75,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 
 export function FeaturedMembers() {
   return (
-    <section className="overflow-hidden bg-white py-12 sm:py-16 lg:py-24">
+    <section className="overflow-hidden bg-[var(--card)] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
@@ -124,7 +124,7 @@ function FeaturedMemberCard({
   return (
     <article
       className={cn(
-        'group relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#FAFAF9] shadow-sm',
+        'group relative aspect-[3/4] overflow-hidden rounded-2xl bg-[var(--background)] shadow-sm',
         interactive &&
           'transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-black/10',
       )}
@@ -239,10 +239,10 @@ function MobileCarousel({ members }: { members: Member[] }) {
           disabled={!canPrev}
           aria-label="Précédent"
           className={cn(
-            'flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E5E5] bg-white transition-all',
+            'flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E5E5] bg-[var(--card)] transition-all',
             canPrev
-              ? 'text-[#0A0A0A] hover:border-[#0A0A0A]/30 hover:shadow-sm'
-              : 'cursor-not-allowed text-[#737373] opacity-50',
+              ? 'text-[var(--foreground)] hover:border-[#0A0A0A]/30 hover:shadow-sm'
+              : 'cursor-not-allowed text-[var(--muted-foreground)] opacity-50',
           )}
         >
           <ChevronLeft className="h-4 w-4" />
@@ -271,10 +271,10 @@ function MobileCarousel({ members }: { members: Member[] }) {
           disabled={!canNext}
           aria-label="Suivant"
           className={cn(
-            'flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E5E5] bg-white transition-all',
+            'flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E5E5] bg-[var(--card)] transition-all',
             canNext
-              ? 'text-[#0A0A0A] hover:border-[#0A0A0A]/30 hover:shadow-sm'
-              : 'cursor-not-allowed text-[#737373] opacity-50',
+              ? 'text-[var(--foreground)] hover:border-[#0A0A0A]/30 hover:shadow-sm'
+              : 'cursor-not-allowed text-[var(--muted-foreground)] opacity-50',
           )}
         >
           <ChevronRight className="h-4 w-4" />

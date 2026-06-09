@@ -20,7 +20,7 @@ export const Route = createFileRoute('/')({
 function LandingPage() {
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen scroll-smooth bg-white text-[#0A0A0A]">
+      <div className="relative min-h-screen scroll-smooth bg-[var(--background)] text-[var(--foreground)]">
         <LandingHeader />
         <main>
           <Hero />

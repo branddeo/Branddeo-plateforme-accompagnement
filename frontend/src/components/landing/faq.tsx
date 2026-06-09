@@ -3,7 +3,7 @@ import { Reveal } from './reveal'
 
 const FAQS = [
   {
-    q: "À qui s'adresse Le Club IA ?",
+    q: "À qui s'adresse Branddeo Academy ?",
     a: "Aux passionnés d'IA francophones, peu importe leur niveau ou leur métier : entrepreneurs, créateurs de contenu, développeurs, étudiants, freelances. Si tu veux maîtriser l'IA pour de vrai sans te noyer dans 10 newsletters, tu es au bon endroit.",
   },
   {
@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'Quelle différence avec une simple newsletter IA ?',
-    a: "Une newsletter, c'est passif et impersonnel. Le Club IA, c'est actif (formations, ressources téléchargeables) + interactif (Coach IA + communauté) + contextualisé (le coach connaît ton profil, les actus sont commentables). Tu apprends et tu pratiques en parallèle.",
+    a: "Une newsletter, c'est passif et impersonnel. Branddeo Academy, c'est actif (formations, ressources téléchargeables) + interactif (Coach IA + communauté) + contextualisé (le coach connaît ton profil, les actus sont commentables). Tu apprends et tu pratiques en parallèle.",
   },
   {
     q: "Comment se passe l'onboarding ?",
@@ -46,7 +46,7 @@ const FAQS = [
 
 export function FAQ() {
   return (
-    <section className="overflow-hidden bg-white py-12 sm:py-16 lg:py-24">
+    <section className="overflow-hidden bg-[var(--card)] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <div className="text-center">
           <Reveal>

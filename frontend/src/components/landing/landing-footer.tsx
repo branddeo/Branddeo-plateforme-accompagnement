@@ -4,7 +4,7 @@ import { BrandLogo } from '@/components/brand-logo'
 
 export function LandingFooter() {
   return (
-    <footer className="border-t border-[var(--border)] bg-white">
+    <footer className="border-t border-[var(--border)] bg-[var(--card)]">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8 py-16">
         <div className="grid gap-12 md:grid-cols-4 md:gap-8">
           {/* Brand */}
@@ -15,10 +15,10 @@ export function LandingFooter() {
               coach, actualités, ressources.
             </p>
             <a
-              href="mailto:hello@leclubia.com"
+              href="mailto:hello@branddeo.com"
               className="mt-3 inline-block text-sm text-[var(--primary)] transition-colors hover:underline"
             >
-              hello@leclubia.com
+              hello@branddeo.com
             </a>
           </div>
 
@@ -55,22 +55,22 @@ export function LandingFooter() {
           {/* Réseaux */}
           <FooterColumn title="Suis-nous">
             <SocialLink
-              href="https://instagram.com/leclubia"
+              href="https://instagram.com/branddeo"
               label="Instagram"
               icon={<InstagramGlyph />}
             />
             <SocialLink
-              href="https://www.tiktok.com/@leclubia"
+              href="https://www.tiktok.com/@branddeo"
               label="TikTok"
               icon={<TiktokGlyph />}
             />
             <SocialLink
-              href="https://youtube.com/@leclubia"
+              href="https://youtube.com/@branddeo"
               label="YouTube"
               icon={<YoutubeGlyph />}
             />
             <SocialLink
-              href="https://linkedin.com/company/leclubia"
+              href="https://linkedin.com/company/branddeo"
               label="LinkedIn"
               icon={<LinkedinGlyph />}
             />
@@ -79,7 +79,7 @@ export function LandingFooter() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--muted-foreground)] sm:flex-row">
           <span>
-            © {new Date().getFullYear()} Le Club IA — Une création BetterZapp
+            © {new Date().getFullYear()} Branddeo Academy — Une création BetterZapp
             LLC
           </span>
           <span className="inline-flex items-center gap-1.5">

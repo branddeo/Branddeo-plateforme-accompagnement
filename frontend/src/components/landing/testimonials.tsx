@@ -70,7 +70,7 @@ export function Testimonials() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.08}>
-              <figure className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+              <figure className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 shadow-sm transition-shadow hover:shadow-md">
                 <blockquote className="flex-1">
                   <p className="text-base leading-relaxed text-[var(--foreground)] sm:text-lg">
                     “{t.quote}”
