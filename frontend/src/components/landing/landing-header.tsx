@@ -1,32 +1,20 @@
 import { useEffect, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { BrandLogo } from '@/components/brand-logo'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 
 const NAV_LINKS = [
-  { href: '#programme', label: 'Le programme' },
-  { href: '#comment', label: 'Comment ça marche' },
-  { href: '#tarif', label: 'Tarif' },
-  { href: '#temoignages', label: 'Témoignages' },
+  { href: '#programme', label: 'Programme' },
   { href: '#resultats', label: 'Résultats' },
+  { href: '#tarif', label: 'Tarif' },
   { href: '#faq', label: 'FAQ' },
 ]
 
 export function LandingHeader() {
   const [scrolled, setScrolled] = useState(false)
-  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const onScroll = () => {
-      const currentScrollY = window.scrollY
-      setScrolled(currentScrollY > 24)
-
-      // Calcul du % de scroll de la page
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const ratio = docHeight > 0 ? (currentScrollY / docHeight) * 100 : 0
-      setProgress(Math.min(100, Math.max(0, ratio)))
-    }
-
+    const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -37,8 +25,8 @@ export function LandingHeader() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'border-b border-white/10 bg-[#0F081E]/85 backdrop-blur-xl'
-          : 'border-b border-transparent bg-[#0F081E]/0',
+          ? 'border-b border-white/5 bg-[#0F081E]/85 backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent',
       )}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
@@ -49,33 +37,30 @@ export function LandingHeader() {
           className="transition-transform hover:scale-[1.02]"
         />
 
-        <nav className="hidden items-center gap-7 lg:flex">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-display text-sm font-medium text-white/70 transition-colors hover:text-white"
-            >
-              {l.label}
-            </a>
-          ))}
+        {/* Nav links dans un pill conteneur central (style Quantix) */}
+        <nav className="hidden lg:block">
+          <ul className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            {NAV_LINKS.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="inline-flex items-center rounded-full px-4 py-2 font-display text-sm font-medium text-white/70 transition-colors hover:bg-white/[0.05] hover:text-white"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         <a
           href="#tarif"
-          className="inline-flex items-center justify-center rounded-full bg-[var(--coral)] px-5 py-2.5 font-display text-xs font-bold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-6 sm:text-sm"
+          className="group inline-flex items-center gap-1.5 rounded-full bg-[var(--coral)] px-4 py-2 font-display text-xs font-semibold text-white shadow-md shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-5 sm:py-2.5 sm:text-sm"
         >
-          <span className="hidden sm:inline">Rejoindre YouTube Impact</span>
-          <span className="sm:hidden">Rejoindre</span>
+          Rejoindre
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
-
-      {/* Barre de progression scroll — dégradé violet → corail */}
-      <motion.div
-        className="h-[2px] bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] origin-left"
-        style={{ width: `${progress}%` }}
-        transition={{ duration: 0.1 }}
-      />
     </header>
   )
 }

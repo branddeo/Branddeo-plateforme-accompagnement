@@ -1,9 +1,10 @@
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Star } from 'lucide-react'
+import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
 const INCLUSIONS = [
   'Accès complet aux deux parcours : faceless et créateur',
-  'Tous les modules : niche, stratégie de contenu, production IA, tournage, montage, publication, analyse',
+  'Tous les modules : niche, stratégie, production IA, publication, analyse',
   'Communauté privée + lives réguliers',
   'BONUS : la Toolbox IA complète (outils, prompts, workflows)',
   'Accès à la plateforme Branddeo Academy',
@@ -11,102 +12,111 @@ const INCLUSIONS = [
 
 export function OfferSection() {
   return (
-    <section
-      id="tarif"
-      className="relative bg-[var(--light-bg)] py-20 sm:py-28 lg:py-32"
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          {/* Colonne gauche — texte */}
-          <Reveal>
-            <div>
-              <span className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--light-muted)]">
-                Tarif transparent · pas de frais cachés, pas de partage de revenus
-              </span>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-[var(--light-foreground)] sm:text-5xl lg:text-6xl">
-                Une offre unique,{' '}
-                <em className="font-display italic">
-                  <span className="bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] bg-clip-text text-transparent">
-                    tout inclus
+    <section id="tarif" className="relative py-24 sm:py-32 lg:py-36">
+      <div className="mx-auto max-w-3xl px-5 text-center sm:px-6 lg:px-8">
+        <Reveal>
+          <Eyebrow>Le tarif</Eyebrow>
+          <h2 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Une offre unique,{' '}
+            <span className="bg-gradient-to-r from-[var(--violet-soft)] to-[var(--coral)] bg-clip-text text-transparent">
+              tout inclus
+            </span>
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-white/65 sm:text-lg">
+            Pas de frais cachés, pas de partage de revenus.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          {/* Carte pricing unique centrée, max ~480px */}
+          <div className="relative mx-auto mt-14 max-w-[480px]">
+            {/* Glow dégradé derrière */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-4 -z-10 rounded-[2rem]"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, rgba(93,41,153,0.5) 0%, rgba(255,96,92,0.3) 50%, transparent 75%)',
+                filter: 'blur(30px)',
+              }}
+            />
+
+            {/* Bordure dégradée */}
+            <div className="relative rounded-3xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] p-[1.5px] shadow-2xl shadow-[var(--violet)]/30">
+              <div className="rounded-[1.4rem] bg-[#1A1030] p-7 text-left sm:p-9">
+                {/* Header */}
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] font-display text-sm font-bold text-white">
+                    YT
                   </span>
-                </em>
-              </h2>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--light-muted)]">
-                Tu en as marre d'avancer à l'aveugle, d'empiler les essais sans
-                jamais vraiment décoller. YouTube Impact te donne la méthode,
-                les outils et la communauté — au même prix, pour tout le monde.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Colonne droite — Carte pricing SOMBRE (inversion de contraste) */}
-          <Reveal delay={0.15}>
-            <div className="relative">
-              {/* Bordure dégradé violet → corail */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] p-[2px] shadow-2xl shadow-[var(--violet)]/30">
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-2 -z-10 rounded-[2rem] bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] opacity-30 blur-2xl"
-                />
-                <div className="relative overflow-hidden rounded-[1.4rem] bg-[#0F081E] p-8 sm:p-10">
-                  {/* En-tête carte */}
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] font-display text-2xl font-bold text-white">
-                      YT
-                    </span>
-                    <div>
-                      <p className="font-display text-lg font-bold text-white">
-                        YouTube Impact
-                      </p>
-                      <p className="text-xs font-medium text-white/60">
-                        Conçu pour les débutants
-                      </p>
-                    </div>
+                  <div>
+                    <p className="font-display text-base font-bold text-white">
+                      YouTube Impact
+                    </p>
+                    <p className="text-xs font-medium text-white/55">
+                      Conçu pour les débutants
+                    </p>
                   </div>
+                </div>
 
-                  {/* Prix */}
-                  <div className="mt-8 flex items-baseline gap-2">
-                    <span className="font-display text-6xl font-bold tracking-tight text-white sm:text-7xl">
-                      497€
-                    </span>
-                    <span className="text-2xl font-semibold text-white/60">
-                      HT
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-white/55">
-                    Paiement unique
-                  </p>
+                {/* Prix */}
+                <div className="mt-7 flex items-baseline gap-2">
+                  <span className="font-display text-5xl font-bold tracking-tight text-white sm:text-6xl">
+                    497€
+                  </span>
+                  <span className="text-xl font-semibold text-white/60">HT</span>
+                </div>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-white/50">
+                  Paiement unique
+                </p>
 
-                  {/* Inclusions */}
-                  <ul className="mt-8 space-y-3 border-t border-white/10 pt-8">
-                    {INCLUSIONS.map((inc) => (
-                      <li key={inc} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--green)] text-white">
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        <span className="text-sm leading-relaxed text-white/90">
-                          {inc}
-                        </span>
-                      </li>
+                {/* Trait */}
+                <div className="my-7 h-px bg-white/10" />
+
+                {/* Inclusions */}
+                <ul className="space-y-3">
+                  {INCLUSIONS.map((inc) => (
+                    <li key={inc} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--green)]/20 text-[var(--green)]">
+                        <Check className="h-3 w-3" strokeWidth={3.5} />
+                      </span>
+                      <span className="text-sm leading-relaxed text-white/85">
+                        {inc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA pleine largeur de la carte */}
+                <a
+                  href="#tarif"
+                  className="group mt-8 flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-6 py-3.5 font-display text-sm font-semibold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:text-base"
+                >
+                  Rejoindre maintenant
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+
+                <p className="mt-3 text-center text-xs font-medium text-white/55">
+                  Paiement sécurisé · Accès immédiat
+                </p>
+
+                {/* Rappel Trustpilot */}
+                <div className="mt-5 flex items-center justify-center gap-2 text-xs text-white/55">
+                  <span className="flex items-center gap-0.5">
+                    {[1, 2, 3, 4].map((i) => (
+                      <Star
+                        key={i}
+                        className="h-3 w-3 fill-[#00B67A] text-[#00B67A]"
+                      />
                     ))}
-                  </ul>
-
-                  {/* CTA pleine largeur */}
-                  <a
-                    href="#tarif"
-                    className="group mt-8 flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-6 py-4 font-display text-base font-bold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)]"
-                  >
-                    Rejoindre maintenant — 497€ HT
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </a>
-                  <p className="mt-3 text-center text-xs font-medium uppercase tracking-[0.18em] text-white/55">
-                    Paiement sécurisé · Accès immédiat
-                  </p>
+                    <Star className="h-3 w-3 fill-[#00B67A]/40 text-[#00B67A]/40" />
+                  </span>
+                  <span>4/5 sur Trustpilot</span>
                 </div>
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -1,32 +1,33 @@
 import { cn } from '@/lib/utils'
 
 /**
- * Eyebrow éditorial : uppercase tracked, sobre style izi.club.
- * Le `variant` change la couleur (muted par défaut, accent orange en option).
+ * Eyebrow stylisé "— Le programme —" : petit texte centré encadré de deux
+ * traits horizontaux en dégradé violet → corail. Signature visuelle du
+ * modèle Quantix.
  */
 export function Eyebrow({
   children,
   className,
-  variant = 'muted',
 }: {
   children: React.ReactNode
   className?: string
-  variant?: 'muted' | 'accent' | 'primary'
 }) {
   return (
-    <span
+    <div
       className={cn(
-        'eyebrow',
-        // Sur fond clair, l'émeraude vive (--accent) tombe sous le seuil
-        // de lisibilité pour du texte uppercase petit. On utilise sa
-        // déclinaison plus profonde (--emerald-deep) pour la variante
-        // accent — gardé "accent" pour ne pas casser les call sites.
-        variant === 'accent' && 'text-[var(--emerald-deep)]',
-        variant === 'primary' && 'text-[var(--primary)]',
+        'inline-flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-white/65 sm:text-sm',
         className,
       )}
     >
-      {children}
-    </span>
+      <span
+        aria-hidden="true"
+        className="block h-px w-8 bg-gradient-to-r from-transparent via-[var(--coral)] to-[var(--coral)]"
+      />
+      <span>{children}</span>
+      <span
+        aria-hidden="true"
+        className="block h-px w-8 bg-gradient-to-r from-[var(--coral)] via-[var(--coral)] to-transparent"
+      />
+    </div>
   )
 }
