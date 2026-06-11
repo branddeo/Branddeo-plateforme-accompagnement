@@ -3,7 +3,7 @@ import { Reveal } from './reveal'
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 lg:py-40">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
       {/* Glow violet derrière (écho du hero) */}
       <div
         aria-hidden="true"

@@ -44,7 +44,7 @@ export function FourPillars() {
   return (
     <section
       id="programme"
-      className="relative py-24 sm:py-32 lg:py-36"
+      className="relative py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
