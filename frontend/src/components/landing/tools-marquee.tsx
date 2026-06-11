@@ -6,54 +6,45 @@ interface Tool {
   slug: string
 }
 
+/**
+ * Outils que l'apprenant maîtrise dans le programme (cf. spec section 3).
+ * IMPORTANT : ce bandeau présente les outils ENSEIGNÉS — il ne doit JAMAIS
+ * être titré "ils nous font confiance" ou équivalent.
+ */
 const TOOLS: Tool[] = [
+  { name: 'DeepSeek', slug: 'deepseek' },
+  { name: 'Meta AI', slug: 'meta' },
   { name: 'ChatGPT', slug: 'openai' },
-  { name: 'Claude', slug: 'claude' },
-  { name: 'Gemini', slug: 'gemini' },
-  { name: 'Mistral', slug: 'mistralai' },
-  { name: 'Midjourney', slug: 'midjourney' },
-  { name: 'Runway', slug: 'runway' },
-  { name: 'Make', slug: 'make' },
-  { name: 'Zapier', slug: 'zapier' },
-  { name: 'n8n', slug: 'n8n' },
-  { name: 'Notion', slug: 'notion' },
-  { name: 'Canva', slug: 'canva' },
   { name: 'ElevenLabs', slug: 'elevenlabs' },
-  { name: 'Hugging Face', slug: 'huggingface' },
-  { name: 'Perplexity', slug: 'perplexity' },
+  { name: 'Higgsfield', slug: 'higgsfield' },
+  { name: 'CapCut', slug: 'capcut' },
+  { name: 'Canva', slug: 'canva' },
+  { name: 'YouTube Studio', slug: 'youtube' },
 ]
 
 export function ToolsMarquee() {
   return (
     <section
-      aria-label="Outils IA couverts par Branddeo Academy"
-      className="bg-[var(--card)] py-14 sm:py-16 lg:py-24 overflow-hidden"
+      aria-label="Outils enseignés dans YouTube Impact"
+      className="overflow-hidden border-y border-white/10 bg-[var(--card)]/30 py-14 sm:py-20"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow className="mb-4">Outils couverts dans le club</Eyebrow>
-            <h2 className="font-display text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-              Maîtrise les outils IA{' '}
-              <span className="serif-accent">qui comptent.</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--muted-foreground)]">
-              Du modèle de langage à l'automatisation, on couvre tout
-              l'écosystème IA francophone avec une expertise technique pointue.
-            </p>
+            <Eyebrow>Les outils que tu vas maîtriser dans le programme</Eyebrow>
           </Reveal>
         </div>
 
         <div
-          className="relative mt-12 overflow-hidden sm:mt-16"
+          className="relative mt-10 overflow-hidden sm:mt-12"
           style={{
             maskImage:
-              'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+              'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
             WebkitMaskImage:
-              'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+              'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
           }}
         >
-          <div className="tools-marquee-track flex items-center py-4">
+          <div className="tools-marquee-track flex items-center py-2">
             {[...TOOLS, ...TOOLS].map((tool, idx) => (
               <ToolTile
                 key={`${tool.slug}-${idx}`}
@@ -78,21 +69,24 @@ function ToolTile({
   return (
     <div
       {...rest}
-      className="group flex shrink-0 flex-col items-center gap-4 px-10 sm:px-14"
+      className="group flex shrink-0 items-center gap-3 px-8 sm:px-12"
       title={tool.name}
     >
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--background)] transition-all duration-500 group-hover:scale-110 group-hover:border-[var(--primary)]/20 group-hover:bg-[var(--card)] group-hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] sm:h-20 sm:w-20">
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-[var(--card)] transition-all duration-300 group-hover:border-[var(--coral)]/30 sm:h-16 sm:w-16">
         <img
-          src={`https://svgl.app/library/${tool.slug}.svg`}
+          src={`https://cdn.simpleicons.org/${tool.slug}/ffffff`}
           alt={tool.name}
-          className="h-8 w-8 transition-all duration-500 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 sm:h-10 sm:w-10"
+          className="h-7 w-7 opacity-70 transition-opacity duration-300 group-hover:opacity-100 sm:h-8 sm:w-8"
           loading="lazy"
           onError={(e) => {
-            // Fallback vers SimpleIcons si SVGL échoue pour un logo spécifique
-            e.currentTarget.src = `https://cdn.simpleicons.org/${tool.slug}`
+            // Fallback : afficher le nom de l'outil en texte si pas de logo
+            e.currentTarget.style.display = 'none'
           }}
         />
       </div>
+      <span className="font-display text-base font-semibold uppercase tracking-wide text-white/80 sm:text-lg">
+        {tool.name}
+      </span>
     </div>
   )
 }

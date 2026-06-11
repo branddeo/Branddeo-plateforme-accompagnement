@@ -1,70 +1,37 @@
-import {
-  Search,
-  Target,
-  Users,
-  Compass,
-  Layers,
-  CalendarCheck,
-  type LucideIcon,
-} from 'lucide-react'
+import { ArrowRight, EyeOff, ListChecks, Users, Coins } from 'lucide-react'
 import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
-interface Step {
-  icon: LucideIcon
-  number: string
-  title: string
-  description: string
-}
-
-const STEPS: Step[] = [
+const BENEFITS = [
   {
-    icon: Search,
-    number: '01',
-    title: 'Analyse de la demande',
-    description:
-      "On part de ce que les gens cherchent vraiment. Pas de ton ego, pas de ce que TU veux dire — de ce qu'ils veulent voir.",
+    icon: EyeOff,
+    title: 'Deux parcours, un seul programme',
+    body:
+      "Faceless ou face caméra : le programme s'adapte à ton profil. Tu veux construire des chaînes sans montrer ton visage avec l'IA comme assistant de production ? Ou bâtir ta marque personnelle devant la caméra ? Les deux chemins sont couverts, module par module.",
   },
   {
-    icon: Layers,
-    number: '02',
-    title: 'Analyse du marché',
-    description:
-      'On cartographie ta niche. Volumes, tendances, opportunités qui valent le coup vs angles morts à éviter.',
+    icon: ListChecks,
+    title: 'La méthode complète, étape par étape',
+    body:
+      "Validation de niche, stratégie de contenu, algorithme, packaging et miniatures, scripts, production assistée par IA, tournage, montage, publication, analyse. Rien à deviner : chaque étape a son module, ses exemples et ses cas pratiques.",
   },
   {
     icon: Users,
-    number: '03',
-    title: 'Analyse des concurrents',
-    description:
-      "On regarde qui cartonne, ce qui marche chez eux, et — surtout — ce qu'ils oublient. Là est ta brèche.",
+    title: "Tu n'avances plus seul",
+    body:
+      "Communauté privée, lives réguliers, retours sur ton travail. Les questions trouvent des réponses, les blocages se débloquent, et tu avances entouré de créateurs qui visent la même chose que toi.",
   },
   {
-    icon: Compass,
-    number: '04',
-    title: 'Positionnement éditorial',
-    description:
-      "Ton angle clair, ta posture, ce qui te rend impossible à confondre avec un autre. C'est ce qui crée la fidélité.",
-  },
-  {
-    icon: Target,
-    number: '05',
-    title: 'Choix des piliers de contenu',
-    description:
-      'Les 3 ou 4 thématiques sur lesquelles tu vas devenir incontournable. Pas 12. Pas 8. Juste les bons.',
-  },
-  {
-    icon: CalendarCheck,
-    number: '06',
-    title: 'Stratégie de publication',
-    description:
-      "Quand, à quel rythme, avec quel packaging. Le système qui transforme tes vidéos en machine d'acquisition.",
+    icon: Coins,
+    title: 'Des premiers revenus sans saut dans le vide',
+    body:
+      "La méthode est pensée pour générer tes premiers revenus en parallèle de ton activité actuelle. Pas de pari risqué : tu construis ton indépendance brique par brique, à ton rythme, avec un plan clair.",
   },
 ]
 
 export function FourPillars() {
   return (
-    <section id="methode" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+    <section id="programme" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -75,41 +42,53 @@ export function FourPillars() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>La méthode YouTube Impact</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              On ne te montre pas comment{' '}
-              <span className="serif-accent">faire du YouTube.</span>
+            <Eyebrow>Le programme YouTube Impact</Eyebrow>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Une méthode complète, de zéro à ta chaîne monétisée.
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
-              On te donne le système qui transforme une chaîne en machine
-              d'autorité, de revenus et d'impact. 6 étapes, dans cet ordre.
-              Jamais autrement.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+              YouTube Impact couvre tout le parcours : trouver ta niche, créer
+              ta chaîne, produire tes vidéos avec l'aide de l'IA, publier,
+              analyser et monétiser. Tu choisis ton profil, tu suis les étapes,
+              tu construis ton actif.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {STEPS.map((step, i) => (
-            <Reveal key={step.number} delay={i * 0.07}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-[var(--card)] p-7 transition-all duration-300 hover:border-[var(--coral)]/40 hover:shadow-xl hover:shadow-[var(--coral)]/10">
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-3xl font-bold text-[var(--coral)] tracking-tight">
-                    {step.number}
-                  </span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-white transition-colors group-hover:bg-gradient-brand group-hover:text-white">
-                    <step.icon className="h-5 w-5" strokeWidth={2} />
-                  </span>
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {BENEFITS.map((b, i) => (
+            <Reveal key={b.title} delay={i * 0.08}>
+              <div className="group flex h-full gap-5 rounded-2xl border border-white/10 bg-[var(--card)] p-7 transition-all hover:border-[var(--coral)]/40 hover:shadow-xl hover:shadow-[var(--violet)]/10 sm:p-8">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-lg shadow-[var(--violet)]/30">
+                  <b.icon className="h-6 w-6" strokeWidth={2} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
+                    {b.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-white/75">
+                    {b.body}
+                  </p>
                 </div>
-                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  {step.description}
-                </p>
               </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.4}>
+          <div className="mt-14 text-center">
+            <a
+              href="#tarif"
+              className="cta-black cta-black-xl group relative overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Rejoindre YouTube Impact
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

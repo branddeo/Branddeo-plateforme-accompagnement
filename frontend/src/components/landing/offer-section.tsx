@@ -1,39 +1,19 @@
-import { Link } from '@tanstack/react-router'
 import { ArrowRight, Check } from 'lucide-react'
 import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
-const INCLUDED = [
-  {
-    title: 'YouTube Starter',
-    body: 'Les fondations : mindset, setup chaîne, ton profil YouTube, première vidéo imparfaite.',
-  },
-  {
-    title: 'YouTube Accelerator',
-    body: 'Le système complet : niche, packaging, stratégie, production assistée par IA, montage, publication, itération.',
-  },
-  {
-    title: 'Communauté privée',
-    body: 'Un espace dédié dans la plateforme pour échanger avec les autres apprenants.',
-  },
-  {
-    title: 'Lives mensuels',
-    body: 'Sessions live tous les mois avec Fanel et les coachs Branddeo.',
-  },
-  {
-    title: 'Q&A en direct',
-    body: 'Pose tes questions en live et obtiens des retours personnalisés.',
-  },
-  {
-    title: 'Mises à jour à vie',
-    body: 'Chaque nouvelle leçon, chaque mise à jour de la méthode est incluse pour toujours.',
-  },
+const INCLUSIONS = [
+  'Accès complet aux deux parcours : faceless et créateur',
+  'Tous les modules : niche, stratégie de contenu, production IA, tournage, montage, publication, analyse',
+  'Communauté privée + lives réguliers',
+  'BONUS : la Toolbox IA complète (outils, prompts, workflows)',
+  'Accès à la plateforme Branddeo Academy',
 ]
 
 export function OfferSection() {
   return (
     <section
-      id="offre"
+      id="tarif"
       className="relative overflow-hidden py-20 sm:py-28 lg:py-32"
     >
       <div
@@ -46,63 +26,71 @@ export function OfferSection() {
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center">
-            <Eyebrow>L'offre</Eyebrow>
+            <Eyebrow>
+              Tarif transparent — pas de frais cachés, pas de partage de
+              revenus
+            </Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Tout ce que tu reçois.
+              Une offre unique, tout inclus.
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
-              Un seul achat. Accès immédiat. Pour la vie.
-            </p>
           </div>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-14 rounded-3xl border border-white/10 bg-[var(--card)] p-8 shadow-2xl shadow-[var(--violet)]/10 sm:p-12">
-            <div className="flex flex-col items-center gap-3 pb-8 text-center">
-              <Eyebrow>Branddeo Academy</Eyebrow>
-              <p className="font-display text-6xl font-bold tracking-tight text-white sm:text-7xl">
-                <span className="bg-gradient-to-r from-[var(--violet-soft)] to-[var(--coral)] bg-clip-text text-transparent">
-                  497€
-                </span>
-                <span className="text-3xl font-semibold text-white/60"> HT</span>
-              </p>
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/60">
-                Achat unique · Accès à vie
-              </p>
-            </div>
+          {/* Carte pricing avec bordure dégradée violet → corail */}
+          <div className="relative mx-auto mt-14 max-w-3xl rounded-3xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] p-[2px] shadow-2xl shadow-[var(--violet)]/30">
+            <div className="relative overflow-hidden rounded-[1.4rem] bg-[var(--card)] p-8 sm:p-12">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-24 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-gradient-brand opacity-25 blur-[80px]"
+              />
 
-            <div className="grid gap-5 border-t border-white/10 pt-10 sm:grid-cols-2">
-              {INCLUDED.map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--coral)]/15 text-[var(--coral)]">
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
+              <div className="relative text-center">
+                <span className="inline-flex items-center rounded-full border border-[var(--coral)]/30 bg-[var(--coral)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
+                  YouTube Impact · Branddeo Academy
+                </span>
+
+                <p className="mt-6 font-display text-6xl font-bold tracking-tight text-white sm:text-7xl">
+                  <span className="bg-gradient-to-r from-[var(--violet-soft)] to-[var(--coral)] bg-clip-text text-transparent">
+                    497€
                   </span>
-                  <div>
-                    <p className="font-display text-base font-semibold text-white">
-                      {item.title}
-                    </p>
-                    <p className="mt-0.5 text-sm leading-relaxed text-white/70">
-                      {item.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  <span className="text-3xl font-semibold text-white/60">
+                    {' '}HT
+                  </span>
+                </p>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.18em] text-white/60">
+                  Paiement unique
+                </p>
+              </div>
 
-            <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-10">
-              <Link
-                to="/auth"
-                className="cta-black cta-black-xl group relative overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Rejoindre Branddeo Academy
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-              </Link>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/50">
-                Accès immédiat · Paiement sécurisé · Garanti 12 mois
-              </p>
+              <ul className="mt-10 grid gap-4 border-t border-white/10 pt-10 text-left">
+                {INCLUSIONS.map((inc) => (
+                  <li key={inc} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--green)]/15 text-[var(--green)]">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    </span>
+                    <span className="text-base leading-relaxed text-white/90">
+                      {inc}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-10">
+                <a
+                  href="#tarif"
+                  className="cta-black cta-black-xl group relative w-full overflow-hidden sm:w-auto"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Rejoindre YouTube Impact — 497€ HT
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                </a>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/55">
+                  Paiement sécurisé · Accès immédiat
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>

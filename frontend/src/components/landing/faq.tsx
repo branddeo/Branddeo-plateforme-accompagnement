@@ -3,58 +3,75 @@ import { Reveal } from './reveal'
 
 const FAQS = [
   {
-    q: 'Je pars de zéro sur YouTube. C\'est jouable ?',
-    a: "Oui, et c'est même mieux. La formation YouTube Starter pose toutes les fondations (mindset, setup chaîne, ton profil, première vidéo imparfaite). On évite les pièges que les gens font quand ils démarrent seuls. Tu vas plus vite que ceux qui ont déjà cassé leur chaîne avec de mauvais réflexes.",
+    q: 'Est-ce que ça marche si je ne veux pas montrer mon visage ?',
+    a: "Oui. Le programme inclut un parcours faceless complet : choix de niche, production assistée par IA, voix off, montage, publication. Des chaînes entières fonctionnent sans visage — la qualité éditoriale fait le travail.",
   },
   {
-    q: 'Je suis salarié·e, j\'ai peu de temps. C\'est faisable ?',
-    a: "Oui. La méthode est pensée pour des gens qui ont déjà une activité principale. On ne te demande pas de filmer 5 vidéos par semaine. On te montre comment construire un système de publication efficace qui tourne avec quelques heures bien placées. Les replays sont accessibles 24/7, à ton rythme.",
+    q: "Je suis salarié et j'ai peu de temps. C'est jouable ?",
+    a: "Le programme est conçu pour ça. Tu avances à ton rythme, module par module, et la méthode vise tes premiers revenus en parallèle de ton emploi. Personne ne te demande de tout quitter pour commencer.",
   },
   {
-    q: 'Combien de temps avant mes premiers résultats ?',
-    a: "Les premiers signaux (vues, abonnés, commentaires) arrivent dès que tu appliques le packaging et la stratégie de publication. Pour des opportunités concrètes (revenus, leads, monétisation), compte plusieurs semaines à quelques mois de régularité. Et si tu n'y arrives pas dans 12 mois en appliquant la méthode, on te rembourse intégralement.",
+    q: 'Je suis débutant total. Le programme est pour moi ?',
+    a: "Oui. On part de zéro : création de la chaîne, choix de la niche, premières vidéos. Chaque étape est expliquée et illustrée, sans prérequis technique.",
   },
   {
-    q: 'Faut-il du matériel coûteux ?',
-    a: "Non. On a une leçon dédiée au matériel (Module 1) et un setup spécial faceless dans Accelerator si tu ne veux pas montrer ton visage. Tu peux démarrer avec ton téléphone et un éclairage de fenêtre. L'investissement matos vient après les premiers résultats — pas avant.",
+    q: "J'ai besoin de matériel cher ?",
+    a: "Non. Le parcours faceless tourne avec un ordinateur et des outils accessibles, dont plusieurs gratuits. Le parcours créateur démarre avec un setup simple — un smartphone suffit pour les premières vidéos.",
   },
   {
-    q: 'Et si je ne suis pas à l\'aise face caméra ?',
-    a: "Deux solutions. Soit on travaille sur ta posture avec des scripts adaptés (trois niveaux : mot-à-mot, plan détaillé, impro guidée) — tu n'es pas obligé·e de tout débiter par cœur. Soit tu pars en faceless : on a un chapitre entier dans Accelerator sur les chaînes sans visage, avec voix-off ou format slides.",
+    q: 'Combien de temps avant mes premiers revenus ?',
+    a: "Impossible de te donner un chiffre garanti, et méfie-toi de ceux qui le font. Les résultats dépendent de ta niche, de ta régularité et de la qualité de tes vidéos. Le programme te donne la méthode, les outils et l'accompagnement pour maximiser tes chances et éviter les erreurs qui coûtent des mois.",
   },
   {
-    q: 'L\'accès est vraiment à vie ?',
-    a: "Oui. Un seul paiement de 497€ HT te donne accès aux 2 formations, à la communauté privée, aux lives mensuels, aux Q&A et à toutes les mises à jour futures de la méthode — pour toujours. Pas d'abonnement, pas de renouvellement caché.",
+    q: "Le contenu fait avec l'IA, c'est autorisé par YouTube ?",
+    a: "Oui, à condition de respecter les règles de la plateforme — notamment la politique sur le contenu inauthentique. Le programme consacre un module entier à ce sujet : ce que YouTube accepte, ce qu'il sanctionne, et comment produire avec l'IA en restant monétisable. L'IA propose, l'humain dispose.",
   },
   {
-    q: 'Comment fonctionnent les garanties exactement ?',
-    a: "Deux niveaux. Garantie 1 : 90 jours pour tester — si tu n'as pas de résultats concrets, on t'accompagne gratuitement jusqu'à ce que tu en aies. Garantie 2 : sur 12 mois — si en appliquant la méthode sérieusement tu n'as pas généré 1M FCFA OU atteint 5 000 abonnés OU cumulé 100 000 vues, tu demandes le remboursement intégral.",
+    q: "Comment se passe l'accès après le paiement ?",
+    a: "Immédiat. Tu reçois tes accès à Branddeo Academy juste après ton inscription : modules, communauté, lives, toolbox.",
   },
   {
-    q: 'Vous accompagnez aussi en done-for-you ?',
-    a: "Branddeo Academy, c'est la formation pour apprendre la méthode et la mettre en œuvre toi-même. Si tu préfères qu'on gère TOUT (stratégie + scripts + tournage studio + montage + gestion de chaîne), regarde notre offre agence sur branddeo.fr — c'est une autre proposition de valeur, pour un autre budget.",
+    q: "L'accès est limité dans le temps ?",
+    a: "[À confirmer : réponse selon la décision accès à vie / 12 mois]",
+  },
+  {
+    q: 'Quels moyens de paiement acceptez-vous ?',
+    a: "[À confirmer : carte bancaire + moyens de paiement disponibles selon les pays]",
+  },
+  {
+    q: 'Est-ce que vous garantissez des résultats ?',
+    a: "On garantit la méthode, l'accompagnement et la communauté. Personne ne peut garantir des revenus sur YouTube — ça dépend de ton travail. Ce qu'on peut te dire : tu auras un plan clair, des outils éprouvés et des gens pour t'aider à chaque étape.",
   },
 ]
 
 export function FAQ() {
   return (
-    <section className="relative py-20 sm:py-28 lg:py-32">
+    <section id="faq" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center">
             <Eyebrow>Questions fréquentes</Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              On a déjà répondu{' '}
-              <span className="serif-accent">à tout ça.</span>
+              Questions fréquentes
             </h2>
+            <p className="mt-5 text-base text-white/60">
+              Une autre question ? Écris-nous à{' '}
+              <span className="text-[var(--coral)]">
+                [à compléter : email de contact]
+              </span>
+              .
+            </p>
           </div>
         </Reveal>
 
         <div className="mt-14 divide-y divide-white/10 rounded-2xl border border-white/10 bg-[var(--card)]">
           {FAQS.map((f, i) => (
-            <Reveal key={i} delay={i * 0.04}>
-              <details className="group p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
-                <summary className="flex cursor-pointer items-start justify-between gap-4 list-none">
+            <Reveal key={i} delay={i * 0.03}>
+              <details
+                className="group p-6 transition-colors hover:bg-white/[0.02] sm:p-7"
+                open={i === 0}
+              >
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
                   <h3 className="font-display text-lg font-semibold text-white sm:text-xl">
                     {f.q}
                   </h3>
@@ -62,7 +79,7 @@ export function FAQ() {
                     <span className="text-lg leading-none">+</span>
                   </span>
                 </summary>
-                <p className="mt-4 text-base leading-relaxed text-white/70">
+                <p className="mt-4 text-base leading-relaxed text-white/75">
                   {f.a}
                 </p>
               </details>

@@ -1,71 +1,63 @@
-import { Link } from '@tanstack/react-router'
 import { ArrowRight, Check } from 'lucide-react'
 import { Reveal } from './reveal'
 
-const REASSURANCE = [
-  'Accès immédiat',
-  'Paiement sécurisé',
-  'Garanti 12 mois',
+const REASSURANCES = [
+  'Une méthode conforme aux règles YouTube',
+  'Une communauté active qui avance avec toi',
+  '100 % de tes revenus restent à toi',
 ]
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="absolute left-1/2 top-1/2 h-[700px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-brand opacity-25 blur-[120px]" />
-      </div>
+    <section className="relative overflow-hidden">
+      <div className="relative w-full bg-gradient-to-br from-[var(--violet)] via-[var(--violet)] to-[var(--coral)] py-24 sm:py-32 lg:py-40">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
 
-      <div className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)] px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-brand opacity-40 blur-[100px]"
-            />
+        <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Lance ta chaîne de la bonne façon, dès maintenant.
+            </h2>
+          </Reveal>
 
-            <div className="relative z-10">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--coral)]">
-                Dernière étape
-              </span>
-
-              <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Tu sais ce que{' '}
-                <span className="serif-accent">tu as à faire.</span>
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-xl text-base text-white/75 sm:text-lg">
-                30 secondes pour rejoindre l'Academy. Garanti pendant 12 mois.
-                <br className="hidden sm:block" />
-                Pas demain. Aujourd'hui.
-              </p>
-
-              <div className="mt-10 flex flex-col items-stretch gap-5 sm:items-center">
-                <Link
-                  to="/auth"
-                  className="cta-black cta-black-xl group relative overflow-hidden w-full sm:w-auto"
+          <Reveal delay={0.15}>
+            <ul className="mt-10 grid gap-3 sm:grid-cols-3 sm:gap-6">
+              {REASSURANCES.map((r) => (
+                <li
+                  key={r}
+                  className="flex items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/[0.06] px-4 py-3 text-sm font-medium text-white/95 backdrop-blur-sm sm:text-base"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    Rejoindre Branddeo Academy — 497€ HT
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[var(--violet)]">
+                    <Check className="h-4 w-4" strokeWidth={3} />
                   </span>
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-                </Link>
+                  <span>{r}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
-                <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium uppercase tracking-[0.18em] text-white/60">
-                  {REASSURANCE.map((r) => (
-                    <li key={r} className="inline-flex items-center gap-1.5">
-                      <Check className="h-3 w-3 text-[var(--coral)]" strokeWidth={3} />
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <Reveal delay={0.3}>
+            <div className="mt-12 flex flex-col items-center gap-3">
+              <a
+                href="#tarif"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-display text-base font-bold text-[var(--violet)] shadow-2xl shadow-black/30 transition-all hover:scale-[1.02] sm:px-10 sm:py-5 sm:text-lg"
+              >
+                Rejoindre YouTube Impact — 497€ HT
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/80">
+                Paiement sécurisé · Accès immédiat
+              </p>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   )
