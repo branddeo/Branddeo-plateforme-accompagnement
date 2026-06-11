@@ -10,19 +10,19 @@ const BENEFITS = [
 
 export function BenefitsBar() {
   return (
-    <section className="relative border-y border-white/10 bg-[var(--card)]/40 py-10 sm:py-14">
+    <section className="relative bg-[var(--light-bg-soft)] py-8 sm:py-10">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
             {BENEFITS.map((b) => (
               <li
                 key={b}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[var(--card)] px-4 py-3 sm:px-5 sm:py-4"
+                className="flex items-center justify-center gap-3"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--green)]/15 text-[var(--green)]">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--green)] text-white shadow-sm">
                   <Check className="h-3.5 w-3.5" strokeWidth={3} />
                 </span>
-                <span className="font-display text-sm font-semibold text-white sm:text-base">
+                <span className="font-display text-sm font-semibold text-[var(--light-foreground)] sm:text-base">
                   {b}
                 </span>
               </li>

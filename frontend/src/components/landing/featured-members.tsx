@@ -1,157 +1,187 @@
-import { ArrowRight, Eye, Clock, Activity } from 'lucide-react'
-import { Eyebrow } from './eyebrow'
+import { ArrowRight, BarChart3, Eye, Activity } from 'lucide-react'
 import { Reveal } from './reveal'
 
 /**
- * Résultats des chaînes sous gestion Branddeo (section 9 de la spec).
- *
- * NE PAS INVENTER de chiffres. Les noms, abonnés et stats doivent venir de
- * la liste validée par Fanel, avec autorisation explicite des chaînes
- * concernées. Tant qu'on n'a pas la liste, on affiche un placeholder
- * structuré pour que la mise en ligne ne puisse pas se faire avec des
- * chiffres bidons.
+ * Résultats — chaînes sous gestion Branddeo (cf. spec section 9).
+ * NE PAS INVENTER de chiffres ni de noms. Placeholders explicites.
  */
-const CHAIN_PLACEHOLDERS = [
-  '[Chaîne 1 — nom, niche, abonnés]',
-  '[Chaîne 2 — nom, niche, abonnés]',
-  '[Chaîne 3 — nom, niche, abonnés]',
-  '[Chaîne 4 — nom, niche, abonnés]',
+const NICHE_PLACEHOLDERS = [
+  { label: '[Niche 1 — à compléter]', color: 'from-[var(--violet)] to-[#7E3FCB]' },
+  { label: '[Niche 2 — à compléter]', color: 'from-[var(--coral)] to-[#FF8985]' },
+  { label: '[Niche 3 — à compléter]', color: 'from-[#AE08B7] to-[var(--violet)]' },
 ]
 
 export function FeaturedMembers() {
   return (
     <section
       id="resultats"
-      className="relative overflow-hidden py-20 sm:py-28 lg:py-32"
+      className="relative bg-[var(--light-bg)] py-20 sm:py-28 lg:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="absolute left-0 top-1/3 h-[400px] w-[400px] rounded-full bg-[var(--coral)]/15 blur-[100px]" />
-        <div className="absolute right-0 bottom-0 h-[300px] w-[300px] rounded-full bg-[var(--violet)]/20 blur-[100px]" />
-      </div>
-
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        {/* Sous-section A — Chaînes sous gestion */}
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        {/* SOUS-SECTION A — visuel gauche, texte droit */}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <Eyebrow>Branddeo, c'est d'abord du terrain</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Les résultats des chaînes sous gestion Branddeo.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
-              Avant d'enseigner la méthode, on l'applique. Branddeo accompagne
-              et produit des chaînes YouTube au quotidien : stratégie,
-              packaging, production, optimisation. Voici ce que ça donne.
-            </p>
+            <AnalyticsMockup />
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div>
+              <span className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--light-muted)]">
+                Branddeo, c'est d'abord du terrain
+              </span>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-[var(--light-foreground)] sm:text-5xl">
+                Les résultats des chaînes{' '}
+                <em className="font-display italic">
+                  <span className="bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] bg-clip-text text-transparent">
+                    sous gestion Branddeo
+                  </span>
+                </em>
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-[var(--light-muted)]">
+                Avant d'enseigner la méthode, on l'applique. Branddeo accompagne
+                et produit des chaînes YouTube au quotidien : stratégie,
+                packaging, production, optimisation. Voici ce que ça donne.
+              </p>
+
+              <p className="mt-6 text-sm font-medium text-[var(--light-muted)]">
+                Les niches couvertes :
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {NICHE_PLACEHOLDERS.map((n) => (
+                  <li key={n.label} className="flex items-center gap-3">
+                    <span
+                      className={`h-3 w-3 shrink-0 rounded-full bg-gradient-to-br ${n.color}`}
+                    />
+                    <span className="text-base font-semibold text-[var(--light-foreground)]/55">
+                      {n.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs italic text-[var(--light-muted)]/70">
+                [À compléter par Fanel : noms des chaînes sous gestion + chiffres vérifiés + autorisations]
+              </p>
+            </div>
           </Reveal>
         </div>
 
-        <Reveal delay={0.15}>
-          <div className="mt-12 rounded-3xl border border-dashed border-white/15 bg-[var(--card)]/40 p-6 text-center sm:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
-              À compléter par Fanel
-            </p>
-            <p className="mx-auto mt-3 max-w-xl text-base text-white/70">
-              Liste des chaînes sous gestion Branddeo avec chiffres vérifiés et
-              autorisation d'affichage (noms, abonnés, captures éventuelles).
-            </p>
-          </div>
-        </Reveal>
+        {/* SOUS-SECTION B — texte gauche, visuel droit (preuve long format) */}
+        <div className="mt-28 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <div>
+              <span className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--coral)]">
+                Preuve long format
+              </span>
+              <h3 className="mt-4 font-display text-3xl font-bold leading-[1.05] tracking-tight text-[var(--light-foreground)] sm:text-4xl lg:text-5xl">
+                Une vidéo de{' '}
+                <em className="font-display italic">
+                  <span className="bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] bg-clip-text text-transparent">
+                    plus de 3 heures
+                  </span>
+                </em>{' '}
+                qui retient l'attention de bout en bout.
+              </h3>
+              <p className="mt-6 text-lg leading-relaxed text-[var(--light-muted)]">
+                Quand la stratégie de contenu est juste, le format long
+                performe — même contre toutes les croyances sur YouTube.
+              </p>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {CHAIN_PLACEHOLDERS.map((p, i) => (
-            <Reveal key={i} delay={i * 0.05}>
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-[var(--card)] p-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-brand font-display text-base font-bold text-white">
-                  ?
-                </div>
-                <p className="mt-4 font-display text-base font-semibold text-white/50">
-                  {p}
-                </p>
-                <div className="mt-4 grid grid-cols-2 gap-2 border-t border-white/5 pt-4 text-xs">
-                  <div>
-                    <p className="text-white/40">Abonnés</p>
-                    <p className="font-display text-base font-semibold text-white/60">
-                      —
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-white/40">Vues</p>
-                    <p className="font-display text-base font-semibold text-white/60">
-                      —
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Sous-section B — Preuve long format */}
-        <Reveal delay={0.3}>
-          <div className="mt-16 overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)] p-8 sm:p-12">
-            <div className="grid items-center gap-8 sm:grid-cols-[1fr_auto] sm:gap-12">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
-                  Preuve long format
-                </p>
-                <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
-                  Une vidéo de <span className="text-[var(--coral)]">+3 heures</span> qui retient l'attention de bout en bout.
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-white/70">
-                  Quand la stratégie de contenu est juste, le format long
-                  performe — même contre toutes les croyances sur YouTube.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                <div className="rounded-2xl border border-white/10 bg-[var(--background)]/60 p-5 text-center">
-                  <Eye className="mx-auto h-6 w-6 text-[var(--coral)]" />
-                  <p className="mt-3 font-display text-3xl font-bold text-white">
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-[var(--light-border)] bg-[var(--light-card)] p-5 shadow-sm">
+                  <Eye className="h-5 w-5 text-[var(--coral)]" />
+                  <p className="mt-3 font-display text-3xl font-bold text-[var(--light-foreground)]">
                     ~134k
                   </p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-white/50">
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--light-muted)]">
                     Vues
                   </p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-[var(--background)]/60 p-5 text-center">
-                  <Activity className="mx-auto h-6 w-6 text-[var(--coral)]" />
-                  <p className="mt-3 font-display text-3xl font-bold text-white">
+                <div className="rounded-2xl border border-[var(--light-border)] bg-[var(--light-card)] p-5 shadow-sm">
+                  <Activity className="h-5 w-5 text-[var(--coral)]" />
+                  <p className="mt-3 font-display text-3xl font-bold text-[var(--light-foreground)]">
                     ~9 %
                   </p>
-                  <p className="text-xs uppercase tracking-[0.15em] text-white/50">
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--light-muted)]">
                     Jusqu'à la fin
                   </p>
                 </div>
               </div>
+              <p className="mt-4 text-xs italic text-[var(--light-muted)]/70">
+                [Chiffres à vérifier et actualiser avant mise en ligne]
+              </p>
             </div>
-            <p className="mt-6 text-xs italic text-white/40">
-              [Chiffres à vérifier et actualiser avant mise en ligne]
-            </p>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        <Reveal delay={0.45}>
-          <div className="mt-14 text-center">
+          <Reveal delay={0.15}>
+            <AnalyticsMockup variant="long-form" />
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.3}>
+          <div className="mt-16 text-center">
             <a
               href="#tarif"
-              className="cta-black cta-black-xl group relative overflow-hidden"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-10 py-4 font-display text-base font-bold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-12 sm:py-5 sm:text-lg"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Rejoindre YouTube Impact
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+              Rejoindre YouTube Impact
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </Reveal>
-
-        {/* Clock import kept usable — referenced for potential watch-time metric */}
-        <span className="sr-only">
-          <Clock />
-        </span>
       </div>
     </section>
+  )
+}
+
+function AnalyticsMockup({ variant = 'channel' }: { variant?: 'channel' | 'long-form' }) {
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-[var(--light-border)] bg-[var(--light-card)] p-6 shadow-xl sm:p-8">
+      <div className="flex items-center gap-2">
+        <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
+        <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
+        <span className="h-3 w-3 rounded-full bg-[#28C840]" />
+        <span className="ml-3 text-xs font-medium text-[var(--light-muted)]">
+          YouTube Studio · Analytics
+        </span>
+      </div>
+
+      <div className="mt-6 grid grid-cols-3 gap-3 text-center sm:gap-4">
+        {[
+          { label: 'Vues', value: '—' },
+          { label: 'Watch time', value: '—' },
+          { label: 'Abonnés', value: '—' },
+        ].map((s) => (
+          <div key={s.label} className="rounded-xl bg-[var(--light-bg-soft)] py-4">
+            <p className="font-display text-xl font-bold text-[var(--light-foreground)]/60 sm:text-2xl">
+              {s.value}
+            </p>
+            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.15em] text-[var(--light-muted)]">
+              {s.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 flex h-40 items-end gap-1.5 rounded-xl bg-[var(--light-bg-soft)] p-4">
+        {Array.from({ length: variant === 'long-form' ? 18 : 14 }, (_, i) => {
+          const height =
+            variant === 'long-form'
+              ? 20 + Math.sin(i * 0.5) * 25 + i * 2.5
+              : 20 + Math.sin(i * 0.6) * 20 + i * 3
+          return (
+            <div
+              key={i}
+              className="flex-1 rounded-t bg-gradient-to-t from-[var(--violet)] to-[var(--coral)] opacity-80"
+              style={{ height: `${Math.max(15, Math.min(100, height))}%` }}
+            />
+          )
+        })}
+      </div>
+
+      <p className="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--light-muted)]">
+        <BarChart3 className="h-4 w-4" />
+        [Visuel à remplacer par capture réelle fournie par Fanel]
+      </p>
+    </div>
   )
 }

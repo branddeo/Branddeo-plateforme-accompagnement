@@ -1,67 +1,79 @@
 import { Quote } from 'lucide-react'
-import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
 /**
  * Témoignages — placeholders en attendant des témoignages réels avec
- * autorisation explicite, fournis par Fanel (cf. spec section 8).
- *
- * NE PAS INVENTER de prénoms, de citations ou de résultats. Les
- * placeholders ci-dessous sont visiblement non-réels pour éviter toute
- * confusion lors d'une mise en ligne prématurée.
+ * autorisation (cf. spec section 8). NE PAS INVENTER de témoignages.
  */
-const PLACEHOLDERS = [
-  { first: '[Prénom]', label: 'Membre vérifié' },
-  { first: '[Prénom]', label: 'Membre vérifié' },
-  { first: '[Prénom]', label: 'Membre vérifié' },
-  { first: '[Prénom]', label: 'Membre vérifié' },
-  { first: '[Prénom]', label: 'Membre vérifié' },
-  { first: '[Prénom]', label: 'Membre vérifié' },
+const PLACEHOLDERS = Array.from({ length: 6 }, (_, i) => ({ id: i }))
+
+const AVATAR_GRADIENTS = [
+  'from-[var(--violet)] to-[var(--coral)]',
+  'from-[var(--coral)] to-[#FF8985]',
+  'from-[var(--violet)] to-[#AE08B7]',
+  'from-[var(--violet-soft)] to-[var(--violet)]',
+  'from-[var(--coral)] to-[var(--violet)]',
+  'from-[#0F4696] to-[var(--violet)]',
 ]
 
 export function Testimonials() {
   return (
-    <section id="temoignages" className="relative py-20 sm:py-28 lg:py-32">
+    <section
+      id="temoignages"
+      className="relative bg-[var(--light-bg)] py-20 sm:py-28 lg:py-32"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>Ils sont passés par là</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Ce que disent les membres
+            <span className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--light-muted)]">
+              Ils sont passés par là
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--light-foreground)] sm:text-5xl lg:text-6xl">
+              Ce que disent{' '}
+              <em className="font-display italic">
+                <span className="bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] bg-clip-text text-transparent">
+                  les membres
+                </span>
+              </em>
             </h2>
           </Reveal>
         </div>
 
         <Reveal delay={0.15}>
-          <div className="mt-14 rounded-3xl border border-dashed border-white/15 bg-[var(--card)]/40 p-6 text-center sm:p-10">
+          <div className="mt-12 rounded-3xl border border-dashed border-[var(--light-border)] bg-white/60 p-6 text-center sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
               À compléter par Fanel
             </p>
-            <p className="mx-auto mt-3 max-w-xl text-base text-white/70">
-              6 à 10 témoignages réels de membres YouTube Impact, avec
-              prénoms et autorisation. À intégrer dans un carrousel ici.
+            <p className="mx-auto mt-3 max-w-xl text-base text-[var(--light-muted)]">
+              6 à 10 témoignages réels de membres YouTube Impact, avec prénoms
+              et autorisation. À intégrer dans un carrousel défilant
+              (bords fondus sur les côtés, pause au hover).
             </p>
           </div>
         </Reveal>
 
+        {/* Grille placeholders en attendant les vrais témoignages */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PLACEHOLDERS.map((p, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <figure className="h-full rounded-2xl border border-white/10 bg-[var(--card)] p-6">
-                <Quote className="h-6 w-6 text-[var(--coral)]/60" />
-                <blockquote className="mt-3 min-h-[100px] text-sm leading-relaxed text-white/40">
-                  [Témoignage à venir — extrait du retour d'un membre du
-                  programme]
+            <Reveal key={p.id} delay={i * 0.06}>
+              <figure className="h-full rounded-2xl border border-[var(--light-border)] bg-[var(--light-card)] p-6 shadow-sm">
+                <Quote className="h-6 w-6 text-[var(--coral)]/50" />
+                <blockquote className="mt-3 min-h-[120px] text-base leading-relaxed text-[var(--light-foreground)]/40">
+                  [Témoignage à venir — extrait du retour d'un membre du programme.]
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-brand font-display text-xs font-bold text-white">
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-[var(--light-border)] pt-4">
+                  <span
+                    className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length]} font-display text-sm font-bold text-white`}
+                  >
                     ?
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-white">
-                      {p.first}
+                    <p className="text-sm font-semibold text-[var(--light-foreground)]">
+                      [Prénom]
                     </p>
-                    <p className="text-xs text-white/50">{p.label}</p>
+                    <p className="text-xs text-[var(--light-muted)]">
+                      Membre vérifié
+                    </p>
                   </div>
                 </figcaption>
               </figure>

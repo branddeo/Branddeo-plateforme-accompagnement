@@ -1,5 +1,4 @@
 import { ArrowRight, EyeOff, ListChecks, Users, Coins } from 'lucide-react'
-import { Eyebrow } from './eyebrow'
 import { Reveal } from './reveal'
 
 const BENEFITS = [
@@ -31,22 +30,25 @@ const BENEFITS = [
 
 export function FourPillars() {
   return (
-    <section id="programme" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
-        <div className="absolute right-1/4 top-1/3 h-[400px] w-[400px] rounded-full bg-[var(--violet)]/15 blur-[100px]" />
-      </div>
-
+    <section
+      id="programme"
+      className="relative bg-[var(--light-bg)] py-20 sm:py-28 lg:py-32"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>Le programme YouTube Impact</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Une méthode complète, de zéro à ta chaîne monétisée.
+            <span className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--light-muted)]">
+              Le programme YouTube Impact
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-[var(--light-foreground)] sm:text-5xl lg:text-6xl">
+              Une méthode complète,{' '}
+              <em className="font-display italic">
+                <span className="bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] bg-clip-text text-transparent">
+                  de zéro à ta chaîne monétisée
+                </span>
+              </em>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--light-muted)]">
               YouTube Impact couvre tout le parcours : trouver ta niche, créer
               ta chaîne, produire tes vidéos avec l'aide de l'IA, publier,
               analyser et monétiser. Tu choisis ton profil, tu suis les étapes,
@@ -58,15 +60,15 @@ export function FourPillars() {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {BENEFITS.map((b, i) => (
             <Reveal key={b.title} delay={i * 0.08}>
-              <div className="group flex h-full gap-5 rounded-2xl border border-white/10 bg-[var(--card)] p-7 transition-all hover:border-[var(--coral)]/40 hover:shadow-xl hover:shadow-[var(--violet)]/10 sm:p-8">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-lg shadow-[var(--violet)]/30">
+              <div className="flex h-full gap-5 rounded-2xl border border-[var(--light-border)] bg-[var(--light-card)] p-7 shadow-sm transition-all hover:shadow-lg sm:p-8">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] text-white shadow-md shadow-[var(--violet)]/20">
                   <b.icon className="h-6 w-6" strokeWidth={2} />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
+                  <h3 className="font-display text-xl font-bold tracking-tight text-[var(--light-foreground)] sm:text-2xl">
                     {b.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-white/75">
+                  <p className="mt-3 text-base leading-relaxed text-[var(--light-muted)]">
                     {b.body}
                   </p>
                 </div>
@@ -79,13 +81,10 @@ export function FourPillars() {
           <div className="mt-14 text-center">
             <a
               href="#tarif"
-              className="cta-black cta-black-xl group relative overflow-hidden"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-10 py-4 font-display text-base font-bold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-12 sm:py-5 sm:text-lg"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Rejoindre YouTube Impact
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+              Rejoindre YouTube Impact
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </Reveal>

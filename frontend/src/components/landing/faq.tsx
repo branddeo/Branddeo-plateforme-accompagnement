@@ -1,4 +1,4 @@
-import { Eyebrow } from './eyebrow'
+import { CheckCircle2 } from 'lucide-react'
 import { Reveal } from './reveal'
 
 const FAQS = [
@@ -46,45 +46,62 @@ const FAQS = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="relative py-20 sm:py-28 lg:py-32">
+    <section id="faq" className="relative bg-[var(--background)] py-20 sm:py-28 lg:py-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div className="absolute left-1/2 top-1/3 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-[var(--violet)]/10 blur-[100px]" />
+      </div>
+
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
+        {/* Bloc d'intro : grosse pastille check verte centrée */}
         <Reveal>
           <div className="text-center">
-            <Eyebrow>Questions fréquentes</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Questions fréquentes
+            <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[var(--green)] text-white shadow-xl shadow-[var(--green)]/30">
+              <CheckCircle2 className="h-9 w-9" strokeWidth={2.5} />
+            </span>
+            <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Une question ? Demande-nous ce que tu veux
             </h2>
-            <p className="mt-5 text-base text-white/60">
-              Une autre question ? Écris-nous à{' '}
-              <span className="text-[var(--coral)]">
+            <p className="mt-5 text-base text-white/65 sm:text-lg">
+              Écris-nous à{' '}
+              <span className="font-semibold text-[var(--coral)]">
                 [à compléter : email de contact]
               </span>
-              .
+              , on te répond rapidement.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 divide-y divide-white/10 rounded-2xl border border-white/10 bg-[var(--card)]">
-          {FAQS.map((f, i) => (
-            <Reveal key={i} delay={i * 0.03}>
-              <details
-                className="group p-6 transition-colors hover:bg-white/[0.02] sm:p-7"
-                open={i === 0}
-              >
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
-                  <h3 className="font-display text-lg font-semibold text-white sm:text-xl">
-                    {f.q}
-                  </h3>
-                  <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/5 text-[var(--coral)] transition-transform group-open:rotate-45">
-                    <span className="text-lg leading-none">+</span>
-                  </span>
-                </summary>
-                <p className="mt-4 text-base leading-relaxed text-white/75">
-                  {f.a}
-                </p>
-              </details>
-            </Reveal>
-          ))}
+        {/* Accordéon FAQ */}
+        <div className="mt-16">
+          <h3 className="text-center font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            Questions fréquentes
+          </h3>
+
+          <div className="mt-10 divide-y divide-white/10 rounded-2xl border border-white/10 bg-[var(--card)]">
+            {FAQS.map((f, i) => (
+              <Reveal key={i} delay={i * 0.03}>
+                <details
+                  className="group p-6 transition-colors hover:bg-white/[0.02] sm:p-7"
+                  open={i === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                    <h4 className="font-display text-lg font-semibold text-white sm:text-xl">
+                      {f.q}
+                    </h4>
+                    <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/5 text-[var(--coral)] transition-transform group-open:rotate-45">
+                      <span className="text-lg leading-none">+</span>
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-base leading-relaxed text-white/75">
+                    {f.a}
+                  </p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

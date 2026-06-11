@@ -62,6 +62,14 @@
   --gradient-ink: linear-gradient(160deg, #0F081E 0%, #1A0F36 50%, #2A1559 100%);
   --gradient-brand-soft: linear-gradient(135deg, rgba(93,41,153,0.15) 0%, rgba(255,96,92,0.15) 100%);
 
+  /* === Sections claires (alternance fond clair / fond sombre cf. spec) ===== */
+  --light-bg: #FAF8FD;              /* Fond clair général (blanc cassé teinté violet) */
+  --light-bg-soft: #F1EAFA;         /* Bande teintée intermédiaire (barre micro-promesses) */
+  --light-card: #FFFFFF;            /* Cartes blanches sur sections claires */
+  --light-foreground: #1A1030;      /* Texte violet très sombre quasi noir */
+  --light-muted: #5D4F7D;           /* Texte secondaire sur sections claires */
+  --light-border: #E8E0F0;          /* Bordure très discrète */
+
   /* === Couleurs secondaires (touches ponctuelles) ========================= */
   --green: #41AF6E;                 /* Succès / progression validée */
   --green-soft: #6ECF93;
