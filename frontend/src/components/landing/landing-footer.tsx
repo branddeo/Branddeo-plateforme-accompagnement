@@ -11,8 +11,8 @@ export function LandingFooter() {
           <div className="md:col-span-1">
             <BrandLogo size="md" variant="primary" showSignature />
             <p className="mt-4 max-w-xs text-sm text-[var(--muted-foreground)]">
-              La communauté francophone des passionnés d'IA. Formations,
-              coach, actualités, ressources.
+              Agence YouTube done-for-you. On installe le système qui
+              transforme ton expertise en machine à clients.
             </p>
             <a
               href="mailto:hello@branddeo.com"

@@ -4,9 +4,9 @@ import { BrandLogo } from '@/components/brand-logo'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
-  { href: '#programme', label: 'Programme' },
   { href: '#resultats', label: 'Résultats' },
-  { href: '#tarif', label: 'Tarif' },
+  { href: '#systeme', label: 'Notre système' },
+  { href: '#accompagnement', label: "L'accompagnement" },
   { href: '#faq', label: 'FAQ' },
 ]
 
@@ -33,11 +33,9 @@ export function LandingHeader() {
         <BrandLogo
           size="md"
           variant="primary"
-          subtitle="Academy"
           className="transition-transform hover:scale-[1.02]"
         />
 
-        {/* Nav links dans un pill conteneur central (style Quantix) */}
         <nav className="hidden lg:block">
           <ul className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
             {NAV_LINKS.map((l) => (
@@ -54,10 +52,10 @@ export function LandingHeader() {
         </nav>
 
         <a
-          href="#tarif"
+          href="#candidater"
           className="group inline-flex items-center gap-1.5 rounded-full bg-[var(--coral)] px-4 py-2 font-display text-xs font-semibold text-white shadow-md shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-5 sm:py-2.5 sm:text-sm"
         >
-          Rejoindre
+          Candidater
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>

@@ -1,255 +1,191 @@
-# SPEC V2 — Landing page YouTube Impact (Branddeo Academy)
+# SPEC V3 — Landing page Branddeo (modèle AGENCE)
 
-**Objectif :** brief définitif de la LP. Textes finaux à ne pas réécrire.
-Éléments `[PLACEHOLDER]` / `[À COMPLÉTER]` à fournir par Fanel.
+> ⚠️ **PIVOT MAJEUR (V3, 2026-06)**. La V1/V2 décrivait une **formation YouTube Impact à 497€** en achat direct. La V3 abandonne cette piste : **Branddeo redevient une agence d'accompagnement YouTube premium**, comme branddeo.fr. CTA partout = **Candidater** (pas d'achat direct). Deux offres en **candidature** : Branddeo Découverte **2997€ HT** (30 jours) et Branddeo Croissance **7500€ HT** (60 jours, ex-8991€).
 
-**Changements V2 :** structure simplifiée **8 sections** (au lieu de 14),
-nouvelle DA dark mode intégral avec glows et bento grids (référence Quantix).
-Sections retirées listées en fin de doc (roadmap V2+).
+Les textes des mockups (envoyés par Fanel en juin 2026) sont **finaux**. Ne pas réécrire, ne pas "améliorer". `[PLACEHOLDER]` = à fournir plus tard.
 
 ---
 
-## 0. Référence visuelle — PRIORITAIRE
+## 1. Positionnement
 
-Référence de style : capture dashboard "Quantix" (dark mode + halo aurore
-violet au-dessus du hero + bento grids + visuels lumineux dans les cartes).
+- **Cible :** entrepreneurs/experts qui ont déjà une activité (consulting, agence, infopreneur) et veulent utiliser YouTube comme canal d'acquisition de leads qualifiés.
+- **Promesse :** Deviens une référence sur YouTube et trouve des clients en 2h par mois.
+- **Modèle :** agence done-for-you. Branddeo s'occupe de TOUT (stratégie, scripts, packaging, tournage en studio, montage, gestion de chaîne) — l'expert ne consacre que ~2h/mois (présence devant la caméra).
+- **Pas une formation. Pas d'achat direct.** Le visiteur **candidate**, on étudie son cas, on valide la collaboration.
+- **Ton :** direct, tutoiement, phrases courtes. On vend de l'expertise et un système, pas du contenu de formation.
 
-**Reproduire de la référence :**
-- Dark mode intégral, **halo arc violet au-dessus du hero** (effet aurore),
-  composition centrée, bento grids asymétriques, visuels lumineux dans cartes,
-  eyebrows encadrés de traits "— Le programme —", boutons pill discrets avec
-  flèche →, hiérarchie typographique sobre, espacements généreux.
-- **Remplacer :** palette → Branddeo, typo → Khand+Inter, contenus → spec.
+## 2. Charte (inchangée depuis V2)
 
----
+- Couleurs : fond `#0f081e`, surfaces `#1a1030`, violet `#5d2999`, corail `#ff605c`, vert `#41af6e`. Glows violet/magenta diffus partout.
+- Typo : Khand pour titres (graisses 600-700), Inter pour body.
+- Signature : mot-clé en corail dans les titres + soulignement gradient sous H1 du hero.
+- Pastille "B" en corail (logo symbole) accentue ponctuellement la marque dans la mise en page (au-dessus de titres, accroché aux blocs — voir mockups).
+- Séparateurs en pointillés bleus entre certaines sections.
 
-## 1. Contexte produit
+## 3. Structure — 12 sections, ordre définitif
 
-- **Produit :** YouTube Impact — programme 90j sur Branddeo Academy
-- **Deux parcours :** faceless (IA) + créateur (face caméra)
-- **Offre :** 497 € HT, paiement unique, **carte pricing unique**
-- **Preuves sociales :** captures revenus réelles + note Trustpilot 4/5
-- **Audience :** créateurs / entrepreneurs francophones déjà chauffés
-- **Ton :** direct, tutoiement, phrases courtes. Jamais de revenus garantis.
+Tous les CTA pointent vers l'ancre `#candidater` (qui scrolle vers la section pricing).
 
----
+### S1 — Header
+- Logo Branddeo à gauche (wordmark complet).
+- Nav centrée pill : **Résultats · Notre système · L'accompagnement · FAQ**.
+- CTA pill corail à droite : **Candidater →**.
 
-## 2. Charte graphique
+### S2 — Hero
+- Badge social proof au-dessus du H1 (pill arrondi, avatars + "+X experts accompagnés").
+- **H1 (Khand, centré) :** Deviens une référence sur YouTube et **trouve des clients en 2h par mois**.
+  - "trouve des clients en 2h par mois" en **corail**.
+  - Soulignement gradient violet→bleu sous le titre.
+- **Sous-titre :** Tu as l'expertise. Branddeo structure YouTube pour qu'il t'apporte prospects et rendez-vous, sans surcharge mentale.
+- CTA unique : **Candidater →** (pill corail).
+- En dessous : image hero (homme devant micro de studio, ambiance dark) — large, bordure fine, lueur violette.
 
-### Couleurs
+### S3 — Stats bar (sur fond carte sombre)
+- Titre gauche : "Ce que tu loupes sans avoir de chaîne YouTube" ("avoir de chaîne YouTube" en corail).
+- Sous-texte : "Tu sais que YouTube c'est LA plateforme où tu dois être, mais sans cadre, ça devient du chaos : idées floues, essaies ratés, qualité moyenne et toujours aucune opportunité concrète"
+- Grille 4 stats à droite (2×2) : **+32** opportunités possible chaque mois · **+12** mois de contenu qui travaille pour toi · **+15k** personnes pouvant découvrir ton expertise · **+10** leads qualifiés qui ont besoin de vous par vidéo.
+- Chiffres en Khand corail, label en blanc/lavande.
 
-| Rôle | Couleur | Hex |
-|---|---|---|
-| Fond général (tout) | Violet très sombre | `#0f081e` |
-| Surfaces / cartes | Violet sombre dérivé | `#1a1030` |
-| Violet principal (glows, dégradés) | Violet | `#5d2999` |
-| CTA, accents | Corail | `#ff605c` |
-| Texte principal | Blanc | `#FFFFFF` |
-| Texte secondaire | Lavande pâle (blanc 60-70% opacité) | — |
-| Validation | Vert | `#41af6e` |
+### S4 — Notre système (ancre `#systeme`)
+- **H2 :** Ce qu'on met en place pour que **tu deviennes une référence**.
+- Sous-titre : "Branddeo ne « gère pas une chaîne ». On installe un système d'acquisition qui fonctionne avec ou sans nous."
+- CTA "Candidater →" centré.
+- Grille 6 cartes (3×2), chaque carte = visuel lumineux haut + titre + 2 lignes desc :
+  1. **Stratégie de contenu** — On identifie ce que tes prospects cherchent, on produit les bonnes vidéos, et on les transforme en vues, abonnés et clients.
+  2. **Angle & script** — On choisit l'angle qui capte l'attention, on structure le message, et on transforme chaque vidéo en machine à conversion.
+  3. **Packaging vidéo** — On rend la vidéo impossible à ignorer avec un titre et une miniature pensés pour déclencher le clic.
+  4. **Production vidéo dans un studio** — On produit des vidéos de qualité professionnelle dans un environnement optimisé pour la performance et la régularité.
+  5. **Montage vidéo engageant** — On transforme les rushs en vidéos rythmées qui retiennent l'attention et maximisent le temps de visionnage.
+  6. **Gestion chaîne YouTube & optimisation** — On pilote la chaîne, on analyse les données, et on optimise chaque vidéo pour accélérer la croissance.
 
-Secondaires ponctuelles : magenta `#ae08b7`, bleu `#0f4696`.
+### S5 — Vidéos qui servent ton business (galerie miniatures)
+- **H2 :** Des vidéos YouTube performantes **qui servent votre business**.
+- Marquee horizontal dense de **miniatures YouTube** (2 rangées qui défilent en sens opposés, à la branddeo.fr). Bords fondus.
+- `[PLACEHOLDER : miniatures réelles fournies par Fanel. En attendant : 8-10 cartes placeholder gradient stylisées.]`
 
-### Signature visuelle
+### S6 — Témoignages cas client (carrousel avec slides) `#resultats`
+- **H2 :** Des entrepreneurs qui ont **arrêté de perdre du temps**.
+- Slider : chaque slide = **vidéo verticale (poster + play)** à gauche + bloc à droite :
+  - Titre : "Accompagnement de X mois"
+  - Texte case study (paragraphe)
+  - Nom client (centré sous le bloc)
+  - 3 chiffres-preuves en gros Khand corail : "+20 Leads qualifiés", "+35 000 Vues", "+2000 Abonnés"
+- Pagination dots + flèches droite/gauche corail.
+- `[PLACEHOLDER : témoignages réels fournis par Fanel. En attendant : 1 slide visible "Alexandre Alves" + texte lorem cohérent + chiffres bidons signalés clairement comme placeholder.]`
 
-**Dégradé violet → corail** (`#5d2999` → `#ff605c`) : mot clé H1,
-bordure/lueur carte pricing, traits eyebrows, accents.
+### S7 — Timeline 14 jours
+- **H2 (gauche) :** En 2 semaines, tes premières vidéos **travaillent déjà pour toi**.
+- Sous-texte (droite) : "On installe un système d'acquisition prêt à tourner, rapidement." + CTA "Candidater →".
+- **Frise horizontale dans une carte large** : jalons Jour 1, 3, 7, 10, 14 avec ticks verticaux sur grille subtile, milestones :
+  - J1 — Kick-off & Onboarding
+  - J3 — Stratégie de contenu V1
+  - J7 — Rédaction script (en corail = milestone clé)
+  - J10 — Tournage / Packaging (mini + titre)
+  - J14 — V1 de la 1ère vidéo prête (en corail = milestone clé)
 
-### Typographie
+### S8 — 5 étapes accordion (ancre `#accompagnement`)
+- **H2 :** 5 étapes pour construire une machine **YouTube rentable**.
+- Sous-titre : "Tu es accompagné étape par étape par une équipe spécialisée qui structure ton message, renforce ton image et transforme ton contenu en levier de croissance."
+- CTA "Candidater →" centré.
+- Layout 2 colonnes : liste verticale d'onglets à gauche (sélection avec fond corail léger) + panel détails à droite (titre + paragraphe + 3 mini visuels en bas).
+- Étapes :
+  1. Stratégie de contenu (active par défaut)
+  2. Validation des 4 premières vidéos
+  3. Écosystème de production sur mesure
+  4. Système d'acquisition
+  5. Scaling
+- Textes détaillés : `[PLACEHOLDER : Fanel à compléter. En attendant : lorem ipsum + 3 boîtes grises pour visuels].`
 
-- **Titres :** Khand 600-700
-- **Corps :** Inter 400-500, interligne généreux. Jamais Khand en body.
+### S9 — Tarif / Pricing (ancre `#candidater`)
+- **H2 :** Choisis ton accélérateur YouTube **pour devenir incontournable**.
+- 2 cartes pricing empilées verticalement (1 par ligne, layout horizontal interne : badge + nom + prix + objectif + pré-requis + CTA à gauche, liste "ce qui est inclus" + accélérateurs + garanties à droite). Style branddeo.fr (capture 06).
 
-### Langage visuel
+**Pack 1 — Branddeo Découverte (30 jours)**
+- Badge "30 jours" (corail outline).
+- **2997€ HT** (Khand gros).
+- Objectif : Publier 4 vidéos YouTubes performantes qui mettent en avant ton expertise.
+- Pré-requis : être disponible 2-3h en studio + expertise claire. Pas besoin d'offre parfaite.
+- CTA : **Candidater →** (pill corail).
+- **Ce qui est inclus** (checks corail) :
+  - Accompagnement 1:1 en présentiel et en ligne pendant 30 jours
+  - Stratégie de contenu & positionnement
+  - Packaging vidéos (miniatures & titres)
+  - Scripts
+  - Production studio
+  - Montages vidéos
+  - 4 vidéos YouTube performantes publiées
+  - Gestion chaîne YouTube
+- **ACCÉLÉRATEUR** (checks `»` corail) :
+  - Accélérateur 1 : Accès aux outils Branddeo (plateformes de gestion de projet)
+  - Accélérateur 2 : Branding chaîne YouTube (Shooting, photo de profil, bannière YouTube)
+  - Accélérateur 3 : Accès en illimité au studio de tournage offert
+  - Accélérateur 4 : Collaboration possible avec nos chaînes YouTube partenaires
+  - Accélérateur 5 : Flexibilité : Démarrer le projet quand vous voulez
+- **GARANTIES** (3 pastilles avec mini visuels gradient) :
+  - Atteindre les 30K vues
+  - +20 prospects qualifiés
+  - Débloquer la monétisation
+- Petit texte : "ON CONTINUE DE VOUS ACCOMPAGNER JUSQU'AU RÉSULTAT".
 
-- **Dark mode intégral** sur `#0f081e`. Pas de sections claires.
-- **Glows** : halo arc violet aurore au-dessus du hero, lueurs douces
-  derrière les éléments clés, légère lueur corail sur les CTA.
-- **Cartes** : fond `#1a1030`, bordure fine violette, coins 16-20px,
-  **visuel lumineux en haut** (illustration, icône glow, mini-graph) +
-  titre Khand + 1-2 lignes Inter.
-- **Bento grid** asymétrique pour Le programme.
-- **Eyebrows** : "— Le programme —" encadrés de petits traits horizontaux
-  dégradés.
-- **Boutons** : pill compact, flèche → finale. Principal corail plein,
-  secondaire outline. **Plus de gros boutons pleine largeur.**
-- Sections centrées, espacement vertical généreux.
-- Animations sobres + `prefers-reduced-motion`.
+**Pack 2 — Branddeo Croissance (60 jours)**
+- Badge "60 jours" (corail outline).
+- Prix barré ~~8991€ HT~~ → **7500€ HT**.
+- Objectif : Publier 12 vidéos YouTubes performantes qui mettent en avant ton expertise.
+- Pré-requis : avoir une offre monétisable (même simple) ou être prêt à la clarifier rapidement.
+- CTA : **Candidater →**.
+- **Ce qui est inclus** : idem Découverte + 12 vidéos YouTube performantes publiées (4 vidéos/mois).
+- **ACCÉLÉRATEUR** : idem Découverte.
+- **GARANTIES** : idem Découverte.
 
----
+### S10 — Témoignages marquee (5 étoiles)
+- 2 rangées de cartes témoignages qui défilent en sens opposés (style branddeo.fr capture 07).
+- Chaque carte : citation courte + 5 étoiles corail + nom + rôle + avatar.
+- Pastilles "B" corail accrochées sur le marquee.
+- `[PLACEHOLDER : 6-10 témoignages réels à fournir par Fanel. En attendant : "Si je devais mettre une note ça serait 10/10, je recommande PRE6SION et Alexandre les yeux fermés !" — Julien Blin, Fondateur de Finia. Répété en placeholder explicite.]`
 
-## 3. Structure — 8 sections
+### S11 — FAQ (ancre `#faq`)
+- **H2 (gauche) :** Tu te poses sûrement **ces questions**.
+- Sous-texte (droite) : "Manque de temps, peur de refaire une erreur, aucune envie d'apprendre la technique : tout est pensé pour sécuriser ton investissement."
+- Accordéon centré, items rounded séparés par traits fins.
+- 10 questions :
+  1. Est-ce que ça fonctionne si je pars de zéro sur YouTube ?
+  2. Combien de temps je dois réellement y consacrer chaque mois ?
+  3. Est-ce que je dois apprendre YouTube, le montage ou la technique ?
+  4. Est-ce que 4 vidéos suffisent vraiment pour générer des leads ?
+  5. À partir de quand puis-je espérer mes premiers leads ?
+  6. Et si je ne suis pas à l'aise face à la caméra ?
+  7. Que se passe-t-il après les 30 jours ?
+  8. Est-ce que je deviens dépendant de Branddeo ?
+  9. Et si je n'ai aucun lieu pour tourner mes vidéos ?
+  10. À qui cette offre ne s'adresse pas ?
+- **Réponses :** `[PLACEHOLDER : Fanel à fournir. En attendant : réponses 2-3 phrases cohérentes avec le positionnement agence, tutoiement, pas de garantie de revenus.]`
 
-Tous les CTA → `#tarif`.
-
-### Section 1 — Navbar
-
-- Logo Branddeo Academy gauche
-- Liens ancres centrés (pill conteneur discret) : Programme · Résultats · Tarif · FAQ
-- CTA pill corail "Rejoindre →" à droite → `#tarif`
-- Sticky, fond `#0f081e` blur au scroll
-
-### Section 2 — Hero
-
-Centré, **halo arc violet au-dessus du titre** (effet aurore).
-
-**Badge pilule fine bordure dégradée :**
-> 🎁 BONUS : la Toolbox IA complète du programme offerte
-
-**H1 (Khand centré, *monétise* en dégradé) :**
-> Lance, développe et **monétise** ta chaîne YouTube en 90 jours.
-
-**Sous-titre Inter lavande pâle 2 lignes centré :**
-> Avec ou sans montrer ton visage. Une méthode complète, une communauté qui avance avec toi, et l'IA comme assistant de production.
-
-**2 boutons côte à côte centrés :**
-- CTA principal pill corail : Rejoindre YouTube Impact →
-- CTA secondaire pill outline : Voir le programme
-
-**Ligne micro-promesses** (séparateurs discrets, 2×2 mobile) :
-> ✅ Accessible aux débutants · ✅ Avec ou sans visage · ✅ Communauté privée · ✅ Accompagnement 90 jours
-
-**Badge Trustpilot** centré discret :
-> ★★★★ Noté 4/5 sur Trustpilot → `[À COMPLÉTER : lien Trustpilot]`
-
-**VSL** : conteneur 16:9 centré large, bordure fine violette, **lueur violette** derrière.
-`[PLACEHOLDER VSL]`
-
-### Section 3 — Bandeau outils marquee
-
-**Petit texte centré lavande pâle :**
-> Les outils que tu vas maîtriser dans le programme
-
-Marquee : DeepSeek · Meta AI · ChatGPT · ElevenLabs · Higgsfield · CapCut · Canva · YouTube Studio
-
-⚠️ Jamais "ils nous font confiance".
-
-### Section 4 — Le programme (`#programme`)
-
-**Eyebrow encadré traits :** — Le programme —
-**H2 centré :** Une méthode complète, de zéro à ta chaîne monétisée
-**Sous-titre centré lavande pâle :**
-> Tu choisis ton profil, tu suis les étapes, tu construis ton actif.
-
-**Bento grid : rangée 3 cartes + rangée 2 cartes larges.** Chaque carte =
-visuel lumineux en haut + titre Khand + 1-2 lignes Inter.
-
-1. **Deux parcours, un seul programme** — Faceless ou face caméra : le programme s'adapte à ton profil, module par module.
-
-2. **La méthode complète** — Niche, stratégie de contenu, packaging, scripts, production, publication, analyse. Rien à deviner.
-
-3. **L'IA comme assistant de production** — Scripts, voix off, visuels, montage : tu produis plus vite, en restant conforme aux règles YouTube.
-
-4. (large) **Tu n'avances plus seul** — Communauté privée, lives réguliers, retours sur ton travail. Les blocages se débloquent, et tu avances entouré de créateurs qui visent la même chose que toi.
-
-5. (large) **Des premiers revenus sans saut dans le vide** — La méthode est pensée pour générer tes premiers revenus en parallèle de ton activité actuelle. Tu construis ton indépendance brique par brique, avec un plan clair.
-
-**CTA pill corail centré :** Rejoindre YouTube Impact →
-
-### Section 5 — Résultats (`#resultats`)
-
-**Eyebrow :** — Les résultats —
-**H2 centré :** Des chaînes qui rapportent, pas des promesses
-**Sous-titre centré lavande pâle :**
-> Avant d'enseigner la méthode, on l'applique. Voici des résultats réels de chaînes construites avec elle.
-
-**Grille 2-3 cartes preuves** (bento cohérent). Chaque carte : **capture
-réelle de revenus** (AdSense / Studio analytics) avec lueur douce + 1 ligne
-de contexte (niche + période).
-
-`[À COMPLÉTER : captures réelles fournies par Fanel, infos sensibles floutées. NE PAS inventer.]`
-
-**Micro-texte lavande pâle centré :**
-> Résultats réels, non garantis : ils dépendent de ta niche, de ta régularité et de ton travail.
-
-**CTA pill corail centré :** Rejoindre YouTube Impact →
-
-### Section 6 — Tarif (`#tarif`)
-
-**Eyebrow :** — Le tarif —
-**H2 centré :** Une offre unique, tout inclus
-**Sous-titre centré :** Pas de frais cachés, pas de partage de revenus.
-
-**Carte pricing UNIQUE CENTRÉE** — élément le plus lumineux : fond
-`#1a1030`, **bordure + lueur dégradée violet → corail**, coins très
-arrondis, largeur max ~480px.
-
-Contenu :
-- Badge "YouTube Impact" + mention "Conçu pour les débutants"
-- **Prix : 497 € HT** paiement unique (gros Khand)
-- Trait
-- Inclusions (checks verts) :
-  - ✅ Accès complet aux deux parcours : faceless et créateur
-  - ✅ Tous les modules : niche, stratégie, production IA, publication, analyse
-  - ✅ Communauté privée + lives réguliers
-  - ✅ BONUS : la Toolbox IA complète (outils, prompts, workflows)
-  - ✅ Accès à la plateforme Branddeo Academy `[À CONFIRMER : durée]`
-  - ✅ `[À COMPLÉTER : garantie éventuelle]`
-- CTA pill corail pleine largeur carte : Rejoindre maintenant →
-- Micro-texte lavande pâle centré : Paiement sécurisé · Accès immédiat
-- **Rappel Trustpilot** : ★★★★ 4/5 sur Trustpilot
-
-### Section 7 — FAQ (`#faq`)
-
-**Eyebrow :** — Questions fréquentes —
-**H2 centré :** Tout ce que tu te demandes avant de rejoindre
-**Sous-titre :** Une autre question ? Écris-nous à `[À COMPLÉTER : email]`.
-
-Accordéon centré largeur max ~720px. Premier item ouvert par défaut.
-Items fond `#1a1030`, bordure fine, coins arrondis.
-
-7 questions (cf. spec complète) — la liste exhaustive et les réponses ne
-changent pas par rapport à la V1.5, juste la présentation.
-
-### Section 8 — CTA final + Footer
-
-**Bloc CTA final centré, glow violet derrière (écho du hero) :**
-- **H2 :** Lance ta chaîne de la bonne façon, dès maintenant
-- Sous-titre : Méthode conforme aux règles YouTube · Communauté active · 100 % de tes revenus restent à toi
-- Bouton pill corail : Rejoindre YouTube Impact →
-
-**Footer** sobre :
-- Logo Branddeo Academy + baseline
-- Liens : Programme · Résultats · Tarif · FAQ · `[réseaux]`
-- Légal : Mentions · CGV · Confidentialité `[PLACEHOLDER]`
-- Contact : `[email]`
-- © 2026 Branddeo
-
----
+### S12 — Final CTA + Footer
+- Bloc CTA centré sur fond glow violet : H2 "Prêt à transformer YouTube en machine à clients ?" + CTA "Candidater →".
+- Footer sobre : logo + baseline + liens nav + légal + contact + © Branddeo 2026.
 
 ## 4. Comportements techniques
 
-- Ancres smooth scroll : `#programme`, `#resultats`, `#tarif`, `#faq`
-- Marquee section 3 : pause hover + `prefers-reduced-motion`
-- FAQ accordéon premier item ouvert
-- VSL embed/mp4 lazy
-- **Glows en CSS** (radial-gradient/blur), pas d'images
-- SEO : title "YouTube Impact — Lance, développe et monétise ta chaîne YouTube en 90 jours | Branddeo Academy"
+- **Marquees** : pause au hover, vitesse lente, respecter `prefers-reduced-motion`.
+- **FAQ** : accordéon, un item ouvert à la fois, premier ouvert par défaut.
+- **Pricing** : carrés détaillés, les 2 packs restent empilés verticalement quoi qu'il arrive.
+- **Carrousel case study** : slide + dots + flèches, navigation clavier, swipe mobile.
+- **Glows** : CSS uniquement (radial-gradient + blur).
+- **Responsive** : mobile-first.
 
 ## 5. Règles de rédaction
 
-- Tutoiement, phrases courtes
-- **Interdit :** "ce n'est pas X c'est Y", motivationnel sur-produit, promesses chiffrées
-- Promesse : méthode + accompagnement + communauté
+- Tutoiement, phrases courtes, français parlé.
+- Interdit : "ce n'est pas X, c'est Y" / motivational lourd / promesses de revenus chiffrés non vérifiés / témoignages inventés.
+- On vend de l'**expertise agence + un système** — jamais des résultats garantis.
 
-## 6. Checklist mise en ligne
+## 6. Checklist à fournir par Fanel
 
-- [ ] Logo PNG fond transparent
-- [ ] Logos outils section 3
-- [ ] Captures revenus + contexte + floutage section 5
-- [ ] Lien Trustpilot (hero + pricing)
-- [ ] Durée d'accès
-- [ ] Garantie ou non
-- [ ] URL paiement + moyens
-- [ ] Email contact
-- [ ] VSL produite
-- [ ] Pages légales
-- [ ] Image OG
-
-## 7. Roadmap V2+ (à ajouter plus tard)
-
-- Barre d'annonce sticky (urgence cohorte)
-- Témoignages carrousel (quand 6-10 réels collectés)
-- Captures preuves sociales WhatsApp/communauté
-- Tableau comparatif
-- Section "Comment ça marche" 3 étapes
+- [x] Logos Branddeo (symbole + wordmark)
+- [ ] Miniatures réelles de vidéos YouTube pour la galerie S5
+- [ ] 1-3 case studies clients (vidéo verticale + texte + chiffres) pour S6
+- [ ] Textes détaillés des 5 étapes (S8) + 3 visuels par étape
+- [ ] 6-10 témoignages réels (citation + nom + rôle + avatar) pour S10
+- [ ] Réponses des 10 questions FAQ (S11)
+- [ ] URL formulaire "Candidater" (Typeform / Calendly / page custom)
+- [ ] Email contact + pages légales + image OG

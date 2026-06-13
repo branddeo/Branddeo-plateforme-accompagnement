@@ -1,10 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { LandingHeader } from '@/components/landing/landing-header'
 import { Hero } from '@/components/landing/hero'
-import { ToolsMarquee } from '@/components/landing/tools-marquee'
+import { StatsBar } from '@/components/landing/stats-bar'
 import { FourPillars } from '@/components/landing/four-pillars'
-import { FeaturedMembers } from '@/components/landing/featured-members'
+import { VideoPortfolio } from '@/components/landing/video-portfolio'
+import { CaseStudyCarousel } from '@/components/landing/case-study-carousel'
+import { TimelineTwoWeeks } from '@/components/landing/timeline-two-weeks'
+import { FiveStepsAccordion } from '@/components/landing/five-steps-accordion'
 import { OfferSection } from '@/components/landing/offer-section'
+import { TestimonialsMarquee } from '@/components/landing/testimonials-marquee'
 import { FAQ } from '@/components/landing/faq'
 import { FinalCTA } from '@/components/landing/final-cta'
 import { LandingFooter } from '@/components/landing/landing-footer'
@@ -18,22 +22,30 @@ function LandingPage() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen scroll-smooth bg-[var(--background)] text-[var(--foreground)]">
-        {/* Section 1 — Navbar */}
+        {/* S1 — Header */}
         <LandingHeader />
         <main>
-          {/* Section 2 — Hero (centré + halo aurore) */}
+          {/* S2 — Hero (badge + H1 + image studio) */}
           <Hero />
-          {/* Section 3 — Bandeau outils marquee */}
-          <ToolsMarquee />
-          {/* Section 4 — Le programme (bento grid) */}
+          {/* S3 — Stats bar (4 chiffres + narratif) */}
+          <StatsBar />
+          {/* S4 — Notre système (6 services) */}
           <FourPillars />
-          {/* Section 5 — Résultats (captures revenus) */}
-          <FeaturedMembers />
-          {/* Section 6 — Tarif (carte pricing unique centrée) */}
+          {/* S5 — Galerie miniatures vidéos */}
+          <VideoPortfolio />
+          {/* S6 — Carrousel case study clients */}
+          <CaseStudyCarousel />
+          {/* S7 — Timeline 14 jours */}
+          <TimelineTwoWeeks />
+          {/* S8 — 5 étapes accordion */}
+          <FiveStepsAccordion />
+          {/* S9 — Pricing 2 packs Découverte / Croissance */}
           <OfferSection />
-          {/* Section 7 — FAQ */}
+          {/* S10 — Témoignages marquee 5 étoiles */}
+          <TestimonialsMarquee />
+          {/* S11 — FAQ 10 questions */}
           <FAQ />
-          {/* Section 8 — CTA final */}
+          {/* S12 — CTA final */}
           <FinalCTA />
         </main>
         {/* Footer */}

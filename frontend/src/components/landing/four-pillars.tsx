@@ -1,132 +1,147 @@
-import { ArrowRight, Compass, ListChecks, Sparkles, Users, Coins } from 'lucide-react'
-import { Eyebrow } from './eyebrow'
+import {
+  ArrowRight,
+  Target,
+  PenLine,
+  Image as ImageIcon,
+  Video,
+  Film,
+  LineChart,
+} from 'lucide-react'
 import { Reveal } from './reveal'
 
-const BENTO = [
+const SERVICES = [
   {
-    icon: Compass,
-    title: 'Deux parcours, un seul programme',
+    icon: Target,
+    title: 'Stratégie de contenu',
     body:
-      "Faceless ou face caméra : le programme s'adapte à ton profil, module par module.",
-    large: false,
+      "On identifie ce que tes prospects cherchent, on produit les bonnes vidéos, et on les transforme en vues, abonnés et clients.",
   },
   {
-    icon: ListChecks,
-    title: 'La méthode complète',
+    icon: PenLine,
+    title: 'Angle & script',
     body:
-      'Niche, stratégie de contenu, packaging, scripts, production, publication, analyse. Rien à deviner.',
-    large: false,
+      "On choisit l'angle qui capte l'attention, on structure le message, et on transforme chaque vidéo en machine à conversion.",
   },
   {
-    icon: Sparkles,
-    title: "L'IA comme assistant de production",
+    icon: ImageIcon,
+    title: 'Packaging vidéo',
     body:
-      "Scripts, voix off, visuels, montage : tu produis plus vite, en restant conforme aux règles YouTube.",
-    large: false,
+      "On rend la vidéo impossible à ignorer avec un titre et une miniature pensés pour déclencher le clic.",
   },
   {
-    icon: Users,
-    title: "Tu n'avances plus seul",
+    icon: Video,
+    title: 'Production vidéo dans un studio',
     body:
-      "Communauté privée, lives réguliers, retours sur ton travail. Les blocages se débloquent, et tu avances entouré de créateurs qui visent la même chose que toi.",
-    large: true,
+      "On produit des vidéos de qualité professionnelle dans un environnement optimisé pour la performance et la régularité.",
   },
   {
-    icon: Coins,
-    title: 'Des premiers revenus sans saut dans le vide',
+    icon: Film,
+    title: 'Montage vidéo engageant',
     body:
-      "La méthode est pensée pour générer tes premiers revenus en parallèle de ton activité actuelle. Tu construis ton indépendance brique par brique, avec un plan clair.",
-    large: true,
+      "On transforme les rushs en vidéos rythmées qui retiennent l'attention et maximisent le temps de visionnage.",
+  },
+  {
+    icon: LineChart,
+    title: 'Gestion chaîne YouTube & optimisation',
+    body:
+      "On pilote la chaîne, on analyse les données, et on optimise chaque vidéo pour accélérer la croissance.",
   },
 ]
 
 export function FourPillars() {
   return (
     <section
-      id="programme"
+      id="systeme"
       className="relative py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <Eyebrow>Le programme</Eyebrow>
-            <h2 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Une méthode complète,{' '}
-              <span className="bg-gradient-to-r from-[var(--violet-soft)] to-[var(--coral)] bg-clip-text text-transparent">
-                de zéro à ta chaîne monétisée
+            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Ce qu'on met en place pour que{' '}
+              <span className="bg-gradient-to-r from-[var(--coral)] to-[var(--coral-soft)] bg-clip-text text-transparent">
+                tu deviennes une référence
               </span>
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
-              Tu choisis ton profil, tu suis les étapes, tu construis ton actif.
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
+              Branddeo ne « gère pas une chaîne ».
+              <br />
+              On installe un système d'acquisition qui fonctionne avec ou sans
+              nous.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-8">
+              <a
+                href="#candidater"
+                className="group inline-flex items-center gap-2 rounded-full bg-[var(--coral)] px-7 py-3 font-display text-sm font-semibold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:text-base"
+              >
+                Candidater
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+            </div>
           </Reveal>
         </div>
 
-        {/* Bento grid : 3 cartes + 2 cartes larges */}
-        <div className="mt-14 grid gap-5 sm:gap-6 lg:grid-cols-3">
-          {BENTO.slice(0, 3).map((b, i) => (
-            <Reveal key={b.title} delay={i * 0.08}>
-              <BentoCard {...b} />
+        {/* Grille 3 × 2 de services */}
+        <div className="mt-14 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.06}>
+              <ServiceCard {...s} index={i} />
             </Reveal>
           ))}
         </div>
-        <div className="mt-5 grid gap-5 sm:gap-6 lg:grid-cols-2">
-          {BENTO.slice(3).map((b, i) => (
-            <Reveal key={b.title} delay={i * 0.08}>
-              <BentoCard {...b} />
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.5}>
-          <div className="mt-14 text-center">
-            <a
-              href="#tarif"
-              className="group inline-flex items-center gap-2 rounded-full bg-[var(--coral)] px-7 py-3.5 font-display text-sm font-semibold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:text-base"
-            >
-              Rejoindre YouTube Impact
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-        </Reveal>
       </div>
     </section>
   )
 }
 
-function BentoCard({
+function ServiceCard({
   icon: Icon,
   title,
   body,
-  large,
+  index,
 }: {
-  icon: typeof Compass
+  icon: typeof Target
   title: string
   body: string
-  large?: boolean
+  index: number
 }) {
   return (
-    <div
-      className={`group relative h-full overflow-hidden rounded-3xl border border-white/[0.08] bg-[#1A1030] p-7 transition-all hover:border-[var(--coral)]/30 sm:p-8 ${large ? '' : ''}`}
-    >
-      {/* Visuel lumineux en haut de carte */}
-      <div className="relative mb-6 flex h-32 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.05] bg-gradient-to-br from-[#1A1030] to-[#0F081E]">
-        {/* Glow violet derrière l'icône */}
+    <div className="group relative h-full overflow-hidden rounded-3xl border border-white/[0.08] bg-[#150b28] p-6 transition-all hover:border-[var(--coral)]/30 sm:p-7">
+      {/* Visuel lumineux en haut de carte (à branddeo.fr) */}
+      <div className="relative mb-6 flex h-36 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.05] bg-[#0F081E]">
         <div
           aria-hidden="true"
-          className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] opacity-50 blur-[40px]"
+          className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              index % 2 === 0
+                ? 'radial-gradient(circle, rgba(174,8,183,0.45) 0%, rgba(93,41,153,0.25) 40%, transparent 70%)'
+                : 'radial-gradient(circle, rgba(255,96,92,0.4) 0%, rgba(174,8,183,0.2) 45%, transparent 75%)',
+            filter: 'blur(20px)',
+          }}
+        />
+        {/* Quadrillage subtil */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+          }}
         />
         <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--violet)] to-[var(--coral)] shadow-lg shadow-[var(--violet)]/30">
           <Icon className="h-7 w-7 text-white" strokeWidth={1.75} />
         </div>
       </div>
 
-      <h3 className="font-display text-xl font-bold tracking-tight text-white sm:text-2xl">
+      <h3 className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
         {title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-white/65 sm:text-base">
-        {body}
-      </p>
+      <p className="mt-2 text-sm leading-relaxed text-white/65">{body}</p>
     </div>
   )
 }
