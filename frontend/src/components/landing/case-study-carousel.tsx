@@ -3,19 +3,18 @@ import { ArrowLeft, ArrowRight, Play } from 'lucide-react'
 import { Reveal } from './reveal'
 
 /**
- * Carrousel cas client. En attendant les vrais case studies de Fanel :
- * 1 slide visible explicitement marquée placeholder + 4 dots pour montrer
- * l'UI cible. Chiffres clairement signalés comme à compléter.
+ * Carrousel cas alumni de YouTube Impact. En attendant les vraies captures et
+ * témoignages de Fanel : 1 slide placeholder explicite, chiffres signalés.
  */
 const CASES = [
   {
-    duration: '3 mois',
-    name: 'Alexandre Alves',
-    text: "[PLACEHOLDER — texte case study à fournir par Fanel] Lorem ipsum dolor sit amet consectetur. Sed morbi eu auctor tellus elit mattis sapien. Orci dolor lorem cursus ultricies a volutpat. Pharetra aliquet amet hendrerit nibh enim pharetra. Nisl at aliquet eu pretium. Cras eget rhoncus nunc aliquet ut pellentesque at in.",
+    duration: '90 jours',
+    name: '[Alumni à venir]',
+    text: "[PLACEHOLDER — témoignage alumni à fournir par Fanel] Quelques lignes sur le parcours dans le programme : point de départ, déclic, premiers résultats. Tutoiement, parlé, court. Aucun chiffre inventé.",
     stats: [
-      { value: '+20', label: 'Leads qualifiés' },
-      { value: '+35 000', label: 'Vues' },
-      { value: '+2000', label: 'Abonnés' },
+      { value: '[?]', label: 'Vues cumulées' },
+      { value: '[?]', label: 'Abonnés' },
+      { value: '[?]', label: 'Premiers revenus' },
     ],
   },
 ]
@@ -32,18 +31,22 @@ export function CaseStudyCarousel() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Des entrepreneurs qui ont
+              Des chaînes qui rapportent,
               <br />
               <span className="bg-gradient-to-r from-[var(--coral)] to-[var(--coral-soft)] bg-clip-text text-transparent">
-                arrêté de perdre du temps
+                pas des promesses
               </span>
             </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+              Avant d'enseigner la méthode, on l'applique. Voici des résultats
+              réels de chaînes construites avec elle.
+            </p>
           </Reveal>
         </div>
 
         <Reveal delay={0.2}>
           <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-12 lg:items-center">
-            {/* Vidéo verticale à gauche (poster + play) */}
+            {/* Vidéo verticale alumni (poster + play) */}
             <div className="relative mx-auto aspect-[9/16] w-full max-w-sm overflow-hidden rounded-3xl border border-white/[0.08] bg-[#150b28]">
               <div
                 aria-hidden="true"
@@ -67,10 +70,10 @@ export function CaseStudyCarousel() {
               </p>
             </div>
 
-            {/* Bloc texte case study à droite */}
+            {/* Texte témoignage */}
             <div className="space-y-6">
               <h3 className="font-display text-3xl font-bold text-white sm:text-4xl">
-                Accompagnement de {current.duration}
+                Programme {current.duration}
               </h3>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
                 {current.text}
@@ -97,9 +100,16 @@ export function CaseStudyCarousel() {
           </div>
         </Reveal>
 
-        {/* Dots + flèches */}
         <Reveal delay={0.4}>
-          <div className="mt-10 flex items-center justify-between gap-6">
+          <p className="mt-8 text-center text-xs text-white/45 sm:text-sm">
+            Résultats réels non garantis : ils dépendent de ta niche, de ta
+            régularité et de ton travail.
+          </p>
+        </Reveal>
+
+        {/* Dots + flèches */}
+        <Reveal delay={0.5}>
+          <div className="mt-8 flex items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               {Array.from({ length: TOTAL_PLACEHOLDER_SLIDES }).map((_, i) => (
                 <button

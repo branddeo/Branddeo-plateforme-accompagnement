@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Gift, Star } from 'lucide-react'
 import { Reveal } from './reveal'
 
 const HERO_IMAGE_URL = import.meta.env.VITE_HERO_IMAGE_URL as string | undefined
+
+const MICRO_PROMISES = [
+  'Accessible aux débutants',
+  'Avec ou sans visage',
+  'Communauté privée',
+  'Accompagnement 90 jours',
+]
 
 export function Hero() {
   return (
@@ -22,28 +29,12 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6 lg:px-8">
-        {/* Badge social proof : avatars + texte */}
+        {/* Badge BONUS */}
         <Reveal delay={0.05}>
-          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 backdrop-blur-sm">
-            <div className="flex -space-x-2">
-              {[
-                'bg-gradient-to-br from-[var(--violet)] to-[var(--coral)]',
-                'bg-gradient-to-br from-[var(--magenta)] to-[var(--violet)]',
-                'bg-gradient-to-br from-[var(--coral)] to-[#FFB37A]',
-                'bg-gradient-to-br from-[var(--violet-soft)] to-[var(--bleu)]',
-              ].map((c, i) => (
-                <span
-                  key={i}
-                  aria-hidden="true"
-                  className={`inline-block h-6 w-6 rounded-full border-2 border-[#0F081E] ${c}`}
-                />
-              ))}
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#0F081E] bg-[var(--coral)] font-display text-[10px] font-bold text-white">
-                B
-              </span>
-            </div>
-            <span className="pr-2 text-xs font-medium text-white/85 sm:text-sm">
-              +20 experts accompagnés
+          <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--violet)] to-[var(--coral)] p-[1px]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#0F081E] px-4 py-1.5 text-xs font-medium text-white/90">
+              <Gift className="h-3.5 w-3.5 text-[var(--coral)]" />
+              <span>BONUS · Toolbox IA complète offerte</span>
             </span>
           </div>
         </Reveal>
@@ -54,14 +45,12 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mt-8 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
         >
-          Deviens une référence sur YouTube
-          <br />
-          et{' '}
+          Lance, développe et{' '}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-[var(--coral)] to-[var(--coral-soft)] bg-clip-text text-transparent">
-              trouve des clients en 2h par mois
+              monétise
             </span>
-            {/* Soulignement gradient violet → bleu sous le H1 (signature branddeo.fr) */}
+            {/* Soulignement gradient violet → bleu (signature branddeo.fr) */}
             <span
               aria-hidden="true"
               className="absolute inset-x-0 -bottom-2 h-[2px] rounded-full"
@@ -71,29 +60,64 @@ export function Hero() {
               }}
             />
           </span>
+          <br className="hidden sm:block" />
+          {' '}ta chaîne YouTube en 90 jours.
         </motion.h1>
 
         <Reveal delay={0.3}>
           <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base lg:text-lg">
-            Tu as l'expertise. Branddeo structure YouTube pour qu'il t'apporte
-            prospects et rendez-vous, sans surcharge mentale.
+            Avec ou sans montrer ton visage. Une méthode complète, une
+            communauté qui avance avec toi, et l'IA comme assistant de
+            production.
           </p>
         </Reveal>
 
         <Reveal delay={0.45}>
-          <div className="mt-8 flex items-center justify-center">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#candidater"
+              href="#tarif"
               className="group inline-flex items-center gap-2 rounded-full bg-[var(--coral)] px-7 py-3 font-display text-sm font-semibold text-white shadow-lg shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)] sm:px-8 sm:py-3.5 sm:text-base"
             >
-              Candidater
+              Rejoindre YouTube Impact
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="#programme"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 py-3 font-display text-sm font-semibold text-white transition-all hover:bg-white/[0.07] sm:px-8 sm:py-3.5 sm:text-base"
+            >
+              Voir le programme
             </a>
           </div>
         </Reveal>
 
-        {/* Image hero (studio / micro / expert) */}
-        <Reveal delay={0.7} distance={40}>
+        <Reveal delay={0.55}>
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-white/55 sm:text-sm">
+            {MICRO_PROMISES.map((p) => (
+              <li key={p} className="flex items-center gap-2">
+                <span className="text-[var(--green)]">✓</span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        <Reveal delay={0.65}>
+          <a
+            href="#"
+            className="mt-6 inline-flex items-center gap-2 text-xs text-white/55 transition-colors hover:text-white/80"
+          >
+            <span className="flex items-center gap-0.5">
+              {[1, 2, 3, 4].map((i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-[#00B67A] text-[#00B67A]" />
+              ))}
+              <Star className="h-3.5 w-3.5 fill-[#00B67A]/40 text-[#00B67A]/40" />
+            </span>
+            <span>Noté 4/5 sur Trustpilot</span>
+          </a>
+        </Reveal>
+
+        {/* Image hero studio (à fournir) */}
+        <Reveal delay={0.8} distance={40}>
           <div className="relative mx-auto mt-14 max-w-4xl lg:mt-16">
             <div
               aria-hidden="true"
@@ -108,7 +132,7 @@ export function Hero() {
               {HERO_IMAGE_URL ? (
                 <img
                   src={HERO_IMAGE_URL}
-                  alt="Expert YouTube en studio Branddeo"
+                  alt="Branddeo Academy"
                   className="aspect-video w-full object-cover"
                 />
               ) : (
@@ -135,11 +159,10 @@ function HeroPlaceholder() {
           B
         </span>
         <p className="text-center font-display text-sm font-semibold uppercase tracking-[0.18em] text-white/55 sm:text-base">
-          Photo studio à fournir
+          Visuel hero à fournir
         </p>
         <p className="max-w-md text-center text-xs text-white/40 sm:text-sm">
-          Visuel client / setup studio Branddeo — fournir une photo wide en
-          ambiance dark.
+          Image ou VSL de présentation du programme YouTube Impact.
         </p>
       </div>
     </div>

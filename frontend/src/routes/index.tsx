@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { LandingHeader } from '@/components/landing/landing-header'
 import { Hero } from '@/components/landing/hero'
-import { StatsBar } from '@/components/landing/stats-bar'
+import { ToolsMarquee } from '@/components/landing/tools-marquee'
 import { FourPillars } from '@/components/landing/four-pillars'
 import { VideoPortfolio } from '@/components/landing/video-portfolio'
 import { CaseStudyCarousel } from '@/components/landing/case-study-carousel'
@@ -22,33 +22,31 @@ function LandingPage() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen scroll-smooth bg-[var(--background)] text-[var(--foreground)]">
-        {/* S1 — Header */}
         <LandingHeader />
         <main>
-          {/* S2 — Hero (badge + H1 + image studio) */}
+          {/* Hero V2 — badge BONUS Toolbox + H1 monétise + Trustpilot 4/5 */}
           <Hero />
-          {/* S3 — Stats bar (4 chiffres + narratif) */}
-          <StatsBar />
-          {/* S4 — Notre système (6 services) */}
+          {/* Outils IA enseignés (marquee texte) */}
+          <ToolsMarquee />
+          {/* Programme — 6 piliers du programme */}
           <FourPillars />
-          {/* S5 — Galerie miniatures vidéos */}
+          {/* Galerie chaînes construites avec la méthode */}
           <VideoPortfolio />
-          {/* S6 — Carrousel case study clients */}
+          {/* Témoignage alumni (carrousel détaillé) */}
           <CaseStudyCarousel />
-          {/* S7 — Timeline 14 jours */}
+          {/* Timeline 2 semaines — première vidéo prête */}
           <TimelineTwoWeeks />
-          {/* S8 — 5 étapes accordion */}
+          {/* 5 étapes du programme (accordion) */}
           <FiveStepsAccordion />
-          {/* S9 — Pricing 2 packs Découverte / Croissance */}
+          {/* Tarif unique 497€ HT (carte centrée V2) */}
           <OfferSection />
-          {/* S10 — Témoignages marquee 5 étoiles */}
+          {/* Marquee témoignages alumni courts */}
           <TestimonialsMarquee />
-          {/* S11 — FAQ 10 questions */}
+          {/* FAQ — 7 questions V2 */}
           <FAQ />
-          {/* S12 — CTA final */}
+          {/* CTA final */}
           <FinalCTA />
         </main>
-        {/* Footer */}
         <LandingFooter />
       </div>
     </SmoothScroll>

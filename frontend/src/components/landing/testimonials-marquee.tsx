@@ -1,22 +1,21 @@
 import { Star } from 'lucide-react'
 
 /**
- * Marquee de témoignages clients (signature branddeo.fr capture 07). En attendant
- * les vraies citations, on duplique un placeholder explicite — NE PAS INVENTER
- * de témoignages réels.
+ * Marquee de témoignages alumni. En attendant les vraies citations, on
+ * duplique un placeholder explicite — NE PAS INVENTER de témoignages.
  */
 const TESTIMONIALS = Array.from({ length: 8 }, (_, i) => ({
   quote:
-    "[PLACEHOLDER] Si je devais mettre une note ça serait 10/10, je recommande Branddeo les yeux fermés !",
-  name: 'Témoignage à fournir',
-  role: 'Rôle client',
+    "[PLACEHOLDER] Témoignage alumni à fournir. Citation courte (1-2 lignes), tutoiement, parlé.",
+  name: '[Nom alumni]',
+  role: '[Niche / profil]',
   id: i,
 }))
 
 export function TestimonialsMarquee() {
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-      {/* Bordure pointillée bleue haut + bas (signature branddeo.fr) */}
+      {/* Bordures pointillées bleues (signature branddeo.fr) */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 border-t border-dashed border-[var(--bleu)]/30"
@@ -35,7 +34,6 @@ export function TestimonialsMarquee() {
             'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         }}
       >
-        {/* Rangée 1 — défile vers la gauche */}
         <div className="overflow-hidden">
           <div className="tools-marquee-track flex items-stretch gap-4 sm:gap-5">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
@@ -44,7 +42,6 @@ export function TestimonialsMarquee() {
           </div>
         </div>
 
-        {/* Rangée 2 — défile vers la droite */}
         <div className="overflow-hidden">
           <div className="tools-marquee-track tools-marquee-track-reverse flex items-stretch gap-4 sm:gap-5">
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
@@ -54,7 +51,7 @@ export function TestimonialsMarquee() {
         </div>
       </div>
 
-      {/* Pastille "B" corail accrochée (signature branddeo.fr) */}
+      {/* Pastilles "B" corail accrochées */}
       <div className="pointer-events-none absolute left-[12%] top-[35%] hidden sm:block">
         <BrandPin />
       </div>

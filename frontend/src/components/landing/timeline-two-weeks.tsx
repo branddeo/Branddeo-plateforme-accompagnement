@@ -2,31 +2,31 @@ import { ArrowRight } from 'lucide-react'
 import { Reveal } from './reveal'
 
 const MILESTONES = [
-  { day: '1', label: 'Kick-off & Onboarding', highlight: false, position: 0 },
-  { day: '3', label: 'Stratégie de contenu V1', highlight: false, position: 18 },
-  { day: '7', label: 'Rédaction script', highlight: true, position: 45 },
+  { day: '1', label: 'Onboarding + choix du parcours', highlight: false, position: 0 },
+  { day: '3', label: 'Niche validée + positionnement', highlight: false, position: 18 },
+  { day: '7', label: 'Première vidéo scriptée', highlight: true, position: 45 },
   {
     day: '10',
-    label: 'Tournage / Packaging (mini + titre)',
+    label: 'Tournage + packaging (mini + titre)',
     highlight: false,
     position: 67,
   },
-  { day: '14', label: 'V1 de la 1ère vidéo prête', highlight: true, position: 95 },
+  { day: '14', label: '1ère vidéo prête à publier', highlight: true, position: 95 },
 ]
 
 export function TimelineTwoWeeks() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        {/* Header : H2 gauche + sous-texte/CTA droite */}
+        {/* Header */}
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <Reveal>
             <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
-              En 2 semaines, tes premières
+              En 2 semaines, ta première
               <br />
-              vidéos{' '}
+              vidéo{' '}
               <span className="bg-gradient-to-r from-[var(--coral)] to-[var(--coral-soft)] bg-clip-text text-transparent">
-                travaillent déjà pour toi
+                est prête à être publiée
               </span>
             </h2>
           </Reveal>
@@ -34,28 +34,26 @@ export function TimelineTwoWeeks() {
           <Reveal delay={0.15}>
             <div className="flex flex-col items-start gap-4 sm:items-end lg:items-end">
               <p className="text-sm leading-relaxed text-white/65 sm:text-right sm:text-base">
-                On installe un système d'acquisition
+                Une cadence claire, sans
                 <br className="hidden sm:block" />
-                prêt à tourner, rapidement.
+                surcharge, à ton rythme.
               </p>
               <a
-                href="#candidater"
+                href="#tarif"
                 className="group inline-flex items-center gap-2 rounded-full bg-[var(--coral)] px-6 py-2.5 font-display text-sm font-semibold text-white shadow-md shadow-[var(--coral)]/30 transition-all hover:bg-[var(--coral-soft)]"
               >
-                Candidater
+                Rejoindre
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
           </Reveal>
         </div>
 
-        {/* Séparateur fin */}
         <div className="my-8 h-px w-full bg-white/[0.06] sm:my-10" />
 
         {/* Carte timeline */}
         <Reveal delay={0.3}>
           <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#150b28] p-6 sm:p-10 lg:p-14">
-            {/* Glow violet derrière */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 -z-0"
@@ -65,7 +63,6 @@ export function TimelineTwoWeeks() {
               }}
             />
 
-            {/* Quadrillage subtil */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 opacity-[0.05]"
@@ -76,7 +73,7 @@ export function TimelineTwoWeeks() {
               }}
             />
 
-            {/* Mobile : version verticale */}
+            {/* Mobile : vertical */}
             <div className="relative space-y-6 lg:hidden">
               {MILESTONES.map((m) => (
                 <div key={m.day} className="flex items-start gap-4">
@@ -105,7 +102,7 @@ export function TimelineTwoWeeks() {
               ))}
             </div>
 
-            {/* Desktop : timeline horizontale */}
+            {/* Desktop : horizontal */}
             <div className="relative hidden h-72 lg:block">
               {MILESTONES.map((m) => (
                 <div

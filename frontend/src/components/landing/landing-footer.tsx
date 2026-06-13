@@ -11,8 +11,8 @@ export function LandingFooter() {
           <div className="md:col-span-1">
             <BrandLogo size="md" variant="primary" showSignature />
             <p className="mt-4 max-w-xs text-sm text-[var(--muted-foreground)]">
-              Agence YouTube done-for-you. On installe le système qui
-              transforme ton expertise en machine à clients.
+              Développe tes revenus, ton autorité et ton impact grâce à
+              YouTube.
             </p>
             <a
               href="mailto:hello@branddeo.com"

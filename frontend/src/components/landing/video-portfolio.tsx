@@ -1,9 +1,9 @@
 import { Reveal } from './reveal'
 
 /**
- * Galerie de miniatures YouTube qui défilent en sens opposés (style branddeo.fr).
- * En attendant les vraies miniatures de Fanel : cartes placeholder gradient
- * stylisées avec étiquette de niche.
+ * Galerie de chaînes/vidéos construites avec la méthode (2 rangées qui défilent
+ * en sens opposés, style branddeo.fr). En attendant les vraies captures
+ * d'alumni de Fanel : cartes placeholder gradient stylisées.
  */
 const PLACEHOLDER_THUMBS_ROW_1 = [
   { label: 'POV DUBAÏ', accent: 'from-[var(--violet)] to-[var(--coral)]' },
@@ -33,10 +33,10 @@ export function VideoPortfolio() {
       <div className="mx-auto max-w-4xl px-5 text-center sm:px-6 lg:px-8">
         <Reveal>
           <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Des vidéos YouTube performantes
+            Des chaînes construites avec la méthode,
             <br />
             <span className="bg-gradient-to-r from-[var(--coral)] to-[var(--coral-soft)] bg-clip-text text-transparent">
-              qui servent votre business
+              dans toutes les niches
             </span>
           </h2>
         </Reveal>
@@ -63,7 +63,7 @@ export function VideoPortfolio() {
             </div>
           </div>
 
-          {/* Rangée 2 — défile vers la droite (reverse) */}
+          {/* Rangée 2 — défile vers la droite */}
           <div className="overflow-hidden">
             <div className="tools-marquee-track tools-marquee-track-reverse flex items-center gap-4 sm:gap-5">
               {[...PLACEHOLDER_THUMBS_ROW_2, ...PLACEHOLDER_THUMBS_ROW_2].map(
@@ -77,7 +77,7 @@ export function VideoPortfolio() {
       </Reveal>
 
       <p className="mx-auto mt-10 max-w-md px-5 text-center text-xs text-white/40 sm:text-sm">
-        Miniatures placeholder. Visuels réels à fournir par Fanel.
+        Miniatures placeholder. Captures de chaînes réelles à fournir.
       </p>
     </section>
   )
@@ -90,7 +90,6 @@ function ThumbCard({ label, accent }: { label: string; accent: string }) {
         aria-hidden="true"
         className={`absolute inset-0 bg-gradient-to-br ${accent} opacity-60`}
       />
-      {/* Quadrillage léger */}
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-10"
@@ -100,7 +99,6 @@ function ThumbCard({ label, accent }: { label: string; accent: string }) {
           backgroundSize: '20px 20px',
         }}
       />
-      {/* Overlay sombre en bas pour lisibilité */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
@@ -108,7 +106,6 @@ function ThumbCard({ label, accent }: { label: string; accent: string }) {
       <p className="absolute bottom-3 left-4 right-4 font-display text-xl font-bold uppercase tracking-tight text-white drop-shadow-lg sm:text-2xl">
         {label}
       </p>
-      {/* Badge durée façon YouTube */}
       <span className="absolute right-2 top-2 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-medium text-white/80 backdrop-blur-sm">
         10:30
       </span>
